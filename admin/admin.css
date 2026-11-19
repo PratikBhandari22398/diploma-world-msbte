@@ -1,16 +1,16 @@
 /* ==============================================================================
-   DIPLOMA WORLD MSBTE - ADMIN DASHBOARD STYLESHEET
-   Mobile-First, Rapid-Posting UI for Exam Nights
+   DIPLOMA WORLD MSBTE - ULTRA-PREMIUM ADMIN DASHBOARD STYLESHEET
+   Linear & Vercel-Grade SaaS Management Interface
    ============================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
 
 :root {
-  --bg-admin-dark: #070b14;
+  --bg-admin-deep: #050811;
   --bg-admin-card: rgba(15, 23, 42, 0.85);
-  --bg-admin-input: rgba(3, 7, 18, 0.7);
-  --border-admin: rgba(255, 255, 255, 0.1);
-  --border-focus: #38bdf8;
+  --bg-admin-input: rgba(8, 14, 28, 0.85);
+  --border-admin: rgba(255, 255, 255, 0.08);
+  --border-admin-hover: rgba(56, 189, 248, 0.35);
 
   --accent-cyan: #38bdf8;
   --accent-blue: #2563eb;
@@ -18,16 +18,17 @@
   --accent-green: #10b981;
   --accent-red: #ef4444;
 
-  --text-main: #f8fafc;
+  --text-pure: #ffffff;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
   --radius-full: 9999px;
 
-  --shadow-panel: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
+  --shadow-panel: 0 20px 45px -12px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.06);
 }
 
 *, *::before, *::after {
@@ -38,31 +39,34 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-admin-dark);
-  color: var(--text-main);
-  line-height: 1.5;
+  background-color: var(--bg-admin-deep);
+  color: var(--text-pure);
+  line-height: 1.6;
   min-height: 100vh;
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
   background-attachment: fixed;
 }
 
-/* Typography & Links */
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
 
 .admin-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
 /* Top Admin Header */
 .admin-navbar {
-  background: rgba(7, 11, 20, 0.9);
-  backdrop-filter: blur(16px);
+  background: rgba(5, 8, 17, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-admin);
   padding: 0.85rem 0;
   position: sticky;
@@ -79,15 +83,16 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .admin-brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .admin-logo {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 2px solid var(--accent-gold);
-  background: #000;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
 }
 
 .admin-title-wrap {
@@ -96,32 +101,33 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 }
 
 .admin-title {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .admin-badge-role {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--accent-gold);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
 }
 
 .admin-user-pill {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.75rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-admin);
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 0.95rem;
   border-radius: var(--radius-full);
 }
 
 .admin-email-text {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
   max-width: 180px;
   overflow: hidden;
@@ -131,10 +137,11 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 
 .btn-signout {
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent-red);
-  background: rgba(239, 68, 68, 0.12);
-  padding: 0.25rem 0.6rem;
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 0.3rem 0.75rem;
   border-radius: var(--radius-sm);
   transition: all 0.2s;
 }
@@ -151,43 +158,46 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 100px);
-  padding: 1.5rem 1rem;
+  min-height: calc(100vh - 120px);
+  padding: 2rem 1rem;
 }
 
 .login-card {
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   background: var(--bg-admin-card);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: var(--radius-lg);
-  padding: 2rem 1.8rem;
-  box-shadow: var(--shadow-panel), 0 0 30px rgba(56, 189, 248, 0.15);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-panel), 0 0 35px rgba(56, 189, 248, 0.2);
   text-align: center;
+  position: relative;
 }
 
 .login-logo {
-  width: 80px;
-  height: 80px;
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
-  border: 3px solid var(--accent-gold);
-  margin: 0 auto 1.25rem;
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  padding: 3px;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.35);
 }
 
 .login-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.45rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 0.3rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
 }
 
 .login-sub {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.85rem;
 }
 
 .login-btn {
@@ -195,17 +205,17 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
   background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
   color: #fff;
   font-weight: 800;
-  font-size: 0.95rem;
-  padding: 0.85rem;
+  font-size: 0.98rem;
+  padding: 0.9rem;
   border-radius: var(--radius-full);
-  margin-top: 1rem;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  margin-top: 1.15rem;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.45);
   transition: all 0.2s;
 }
 
 .login-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.55);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.6);
 }
 
 /* ==============================================================================
@@ -214,11 +224,11 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.85rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 860px) {
   .stats-grid {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -226,30 +236,50 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 
 .stat-card {
   background: var(--bg-admin-card);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border-admin);
   border-radius: var(--radius-md);
-  padding: 1rem;
+  padding: 1.25rem 1.1rem;
   box-shadow: var(--shadow-panel);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-admin-hover);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
+  opacity: 0.8;
 }
 
 .stat-label {
   font-size: 0.74rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.35rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
 }
 
 .stat-val {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.65rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.85rem;
   font-weight: 800;
   color: #fff;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .stat-val.gold { color: var(--accent-gold); }
@@ -259,24 +289,25 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 /* Chart Section */
 .chart-card {
   background: var(--bg-admin-card);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border-admin);
   border-radius: var(--radius-lg);
-  padding: 1.25rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow-panel);
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .chart-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .chart-title {
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
   color: #fff;
   display: flex;
   align-items: center;
@@ -285,7 +316,7 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 
 .chart-canvas-wrap {
   position: relative;
-  height: 220px;
+  height: 240px;
   width: 100%;
 }
 
@@ -293,41 +324,42 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
    POSTS MANAGER (Rapid Phone Posting Form)
    ============================================================================== */
 .manager-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.75rem;
 }
 
 .section-head-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 1.15rem;
 }
 
 .section-title-admin {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
   font-weight: 800;
   color: #fff;
+  letter-spacing: -0.02em;
 }
 
 /* Post Form Card */
 .post-form-card {
   background: var(--bg-admin-card);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.75rem;
   box-shadow: var(--shadow-panel);
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .form-grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
   .form-grid-2 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -336,10 +368,10 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .form-grid-3 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
   .form-grid-3 {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -347,10 +379,10 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 
 .form-label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-muted);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .form-input, .form-select, .form-textarea {
@@ -358,35 +390,36 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
   background: var(--bg-admin-input);
   border: 1px solid var(--border-admin);
   color: #fff;
-  padding: 0.75rem 0.85rem;
+  padding: 0.8rem 0.95rem;
   border-radius: var(--radius-sm);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-family: inherit;
   transition: all 0.2s;
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   outline: none;
-  border-color: var(--border-focus);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+  border-color: var(--accent-cyan);
+  background: rgba(3, 7, 18, 0.95);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
 }
 
 .form-textarea {
-  min-height: 150px;
-  line-height: 1.5;
+  min-height: 160px;
+  line-height: 1.55;
   resize: vertical;
 }
 
 .form-switch-row {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
 }
 
 .switch-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   accent-color: var(--accent-green);
   cursor: pointer;
 }
@@ -394,35 +427,35 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .form-actions-row {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
 }
 
 .btn-save-post {
   background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
   color: #fff;
   font-weight: 800;
-  font-size: 0.95rem;
-  padding: 0.8rem 1.6rem;
+  font-size: 0.98rem;
+  padding: 0.85rem 1.8rem;
   border-radius: var(--radius-full);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.45);
   transition: all 0.2s;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .btn-save-post:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.55);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.6);
 }
 
 .btn-cancel-edit {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-muted);
   font-weight: 700;
-  font-size: 0.88rem;
-  padding: 0.8rem 1.25rem;
+  font-size: 0.9rem;
+  padding: 0.85rem 1.4rem;
   border-radius: var(--radius-full);
   transition: all 0.2s;
 }
@@ -436,21 +469,26 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .admin-posts-list {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .admin-post-item {
   background: var(--bg-admin-card);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   border: 1px solid var(--border-admin);
   border-radius: var(--radius-md);
-  padding: 1.1rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
+  transition: transform 0.2s;
 }
 
-@media (min-width: 768px) {
+.admin-post-item:hover {
+  border-color: var(--border-admin-hover);
+}
+
+@media (min-width: 820px) {
   .admin-post-item {
     flex-direction: row;
     align-items: center;
@@ -461,39 +499,41 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .admin-post-info {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
 
 .admin-post-title {
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 800;
   color: #fff;
+  letter-spacing: -0.01em;
 }
 
 .admin-post-meta {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .admin-post-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   flex-shrink: 0;
 }
 
 .btn-action {
-  padding: 0.45rem 0.8rem;
+  padding: 0.5rem 0.9rem;
   border-radius: var(--radius-sm);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   transition: all 0.2s;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.35rem;
 }
 
 .btn-action-edit {
@@ -535,11 +575,11 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .leads-header-row {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.85rem;
+  margin-bottom: 1.15rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
   .leads-header-row {
     flex-direction: row;
     align-items: center;
@@ -551,36 +591,36 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
   background: var(--bg-admin-input);
   border: 1px solid var(--border-admin);
   color: #fff;
-  padding: 0.55rem 0.85rem;
+  padding: 0.65rem 0.95rem;
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  min-width: 240px;
+  font-size: 0.88rem;
+  min-width: 260px;
 }
 
 .btn-export-csv {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #fff;
   font-weight: 800;
-  font-size: 0.85rem;
-  padding: 0.6rem 1.15rem;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.25rem;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+  gap: 0.45rem;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
   transition: all 0.2s;
 }
 
 .btn-export-csv:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.55);
 }
 
 .table-responsive {
   width: 100%;
   overflow-x: auto;
   background: var(--bg-admin-card);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border-admin);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-panel);
@@ -590,32 +630,32 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
 }
 
 .leads-table th {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
   color: var(--text-dim);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  font-size: 0.74rem;
-  letter-spacing: 0.05em;
-  padding: 0.85rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  padding: 0.95rem 1.15rem;
   border-bottom: 1px solid var(--border-admin);
 }
 
 .leads-table td {
-  padding: 0.85rem 1rem;
+  padding: 0.95rem 1.15rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   color: #e2e8f0;
 }
 
 .leads-table tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .leads-count-bar {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-dim);
-  margin-top: 0.5rem;
+  margin-top: 0.65rem;
 }

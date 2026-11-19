@@ -1,10 +1,10 @@
 /**
  * ==============================================================================
- * DIPLOMA WORLD MSBTE - PUBLIC APPLICATION LOGIC
+ * DIPLOMA WORLD MSBTE - ULTRA-PREMIUM APPLICATION LOGIC
  * ==============================================================================
  */
 
-// Fallback demo posts if Supabase project URL is not yet connected
+// Fallback demo posts if offline or during setup
 const DEMO_POSTS = [
   {
     id: "demo-1",
@@ -105,10 +105,6 @@ function initState() {
       console.warn("Supabase init error:", err);
       state.isConfigured = false;
     }
-  } else {
-    state.isConfigured = false;
-    const banner = document.getElementById('setupBanner');
-    if (banner) banner.style.display = 'block';
   }
 
   // Check if lead was previously submitted on this device
@@ -241,7 +237,7 @@ async function fetchPosts() {
 }
 
 /**
- * 5. Render Filtered IMP Posts
+ * 5. Render Filtered IMP Posts (Ultra-Premium Tech Look)
  */
 function renderPosts() {
   const container = document.getElementById('postsContainer');
@@ -270,10 +266,10 @@ function renderPosts() {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="empty-box">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔍</div>
-        <h3 style="color: #fff; margin-bottom: 0.35rem;">No IMP Questions Found</h3>
-        <p>Try clearing filters or searching for another subject.</p>
+      <div style="text-align: center; padding: 4rem 1.5rem; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); grid-column: 1 / -1;">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+        <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin-bottom: 0.35rem;">No IMP Questions Found</h3>
+        <p style="color: var(--text-muted); font-size: 0.92rem;">Try clearing your search query or switching semester filters.</p>
       </div>
     `;
     return;
@@ -310,46 +306,62 @@ function renderPosts() {
     let questionsHtml = '';
     if (state.isUnlocked) {
       questionsHtml = `
-        <div class="questions-box">
-          <div class="questions-header">
-            <span class="questions-count-label">Questions (${questionsCount})</span>
-            <button class="btn-copy-card" onclick="copyQuestions('${encodeURIComponent(post.questions)}')">
+        <div class="questions-box-pro">
+          <div class="questions-header-bar">
+            <span class="q-count-badge">Questions (${questionsCount})</span>
+            <button class="btn-copy-card-pro" onclick="copyQuestions('${encodeURIComponent(post.questions)}')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M16 1H4C2.9 1 2 1.9 2 3v14h2V3h12V1zm3 4H8C6.9 5 6 5.9 6 7v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
               </svg>
-              Copy All
+              <span>Copy All</span>
             </button>
           </div>
-          <ol class="questions-ol">
-            ${questionsArray.map(q => `<li>${escapeHtml(q)}</li>`).join('')}
-          </ol>
+          <ul class="questions-list-pro">
+            ${questionsArray.map((q, idx) => `
+              <li class="question-row">
+                <span class="q-number-pill">${String(idx + 1).padStart(2, '0')}</span>
+                <span>${escapeHtml(q)}</span>
+              </li>
+            `).join('')}
+          </ul>
         </div>
       `;
     } else {
       // Locked Preview State
       const previewSlice = questionsArray.slice(0, 2);
       questionsHtml = `
-        <div class="questions-box locked-cover">
-          <div class="locked-blur">
-            <div class="questions-header">
-              <span class="questions-count-label">Questions (${questionsCount})</span>
+        <div class="questions-box-pro locked-cover-pro">
+          <div class="locked-blur-pro">
+            <div class="questions-header-bar">
+              <span class="q-count-badge">Questions (${questionsCount})</span>
             </div>
-            <ol class="questions-ol">
-              ${previewSlice.map(q => `<li>${escapeHtml(q)}</li>`).join('')}
-              <li>[Locked Question - Click unlock below]</li>
-              <li>[Locked Question - Click unlock below]</li>
-            </ol>
+            <ul class="questions-list-pro">
+              ${previewSlice.map((q, idx) => `
+                <li class="question-row">
+                  <span class="q-number-pill">${String(idx + 1).padStart(2, '0')}</span>
+                  <span>${escapeHtml(q)}</span>
+                </li>
+              `).join('')}
+              <li class="question-row">
+                <span class="q-number-pill">03</span>
+                <span>[Exam Question Locked - Tap unlock below]</span>
+              </li>
+              <li class="question-row">
+                <span class="q-number-pill">04</span>
+                <span>[Exam Question Locked - Tap unlock below]</span>
+              </li>
+            </ul>
           </div>
-          <div class="locked-overlay">
-            <div class="locked-icon-circle">
+          <div class="locked-overlay-pro">
+            <div class="locked-shield-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
               </svg>
             </div>
-            <h4 class="locked-title">Unlock Full IMP Questions</h4>
-            <p class="locked-desc">Quick 5-second entry to view all ${questionsCount} questions & solutions.</p>
-            <button class="btn-unlock" onclick="openEntryGateModal()">
-              <span>Unlock Now</span>
+            <h4 class="locked-heading">Unlock All IMP Questions</h4>
+            <p class="locked-caption">Fill any 2 simple details to view all ${questionsCount} board questions instantly.</p>
+            <button class="btn-unlock-pro" onclick="openEntryGateModal()">
+              <span>Unlock Questions</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
             </button>
           </div>
@@ -365,20 +377,23 @@ function renderPosts() {
 
     return `
       <div class="post-card">
-        <div class="card-top-badges">
-          <span class="badge badge-scheme">${escapeHtml(post.scheme)}</span>
-          <span class="badge badge-sem">${escapeHtml(post.semester)}</span>
-          ${examDateStr ? `<span class="badge badge-exam">📅 Exam: ${examDateStr}</span>` : ''}
-          ${isUpdatedToday ? `<span class="badge badge-updated">🔥 Updated Today</span>` : ''}
+        <div class="card-badge-row">
+          <span class="card-badge scheme">${escapeHtml(post.scheme)}</span>
+          <span class="card-badge sem">${escapeHtml(post.semester)}</span>
+          ${examDateStr ? `<span class="card-badge exam">📅 Exam: ${examDateStr}</span>` : ''}
+          ${isUpdatedToday ? `<span class="card-badge updated-today">🔥 Updated Today</span>` : ''}
         </div>
         <h3 class="card-title">${escapeHtml(post.title)}</h3>
-        <p class="card-subject">${escapeHtml(post.subject)}</p>
+        <p class="card-subject-line">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+          <span>${escapeHtml(post.subject)}</span>
+        </p>
         
         ${questionsHtml}
 
-        <div class="card-footer-info">
+        <div class="card-bottom-info">
           <span>Posted: ${postedFormatted}</span>
-          <span>MSBTE Board</span>
+          <span style="color: var(--gold-accent); font-weight: 700;">MSBTE Board Verified</span>
         </div>
       </div>
     `;
@@ -386,12 +401,50 @@ function renderPosts() {
 }
 
 /**
- * 6. Entry Gate Modal Logic (Requires ANY 2 of 3 fields)
+ * 6. Entry Gate Modal Logic (With Live Progress Bar)
  */
 function initEntryGate() {
   const modal = document.getElementById('entryGateModal');
   const closeBtn = document.getElementById('modalCloseBtn');
   const form = document.getElementById('entryGateForm');
+
+  const nameInput = document.getElementById('gateName');
+  const emailInput = document.getElementById('gateEmail');
+  const collegeInput = document.getElementById('gateCollege');
+  const progressBar = document.getElementById('gateProgressBar');
+  const progressText = document.getElementById('gateProgressText');
+
+  // Real-time progress updater
+  function updateGateProgress() {
+    let filled = 0;
+    if (nameInput && nameInput.value.trim().length > 0) filled++;
+    if (emailInput && emailInput.value.trim().length > 0) filled++;
+    if (collegeInput && collegeInput.value.trim().length > 0) filled++;
+
+    if (progressBar && progressText) {
+      if (filled === 0) {
+        progressBar.style.width = '0%';
+        progressText.textContent = '0 of 2 filled';
+        progressText.style.color = 'var(--gold-accent)';
+      } else if (filled === 1) {
+        progressBar.style.width = '50%';
+        progressText.textContent = '1 of 2 filled (1 more to go)';
+        progressText.style.color = 'var(--gold-accent)';
+      } else if (filled === 2) {
+        progressBar.style.width = '100%';
+        progressText.textContent = '2 of 2 ready! 🎉';
+        progressText.style.color = 'var(--emerald-accent)';
+      } else {
+        progressBar.style.width = '100%';
+        progressText.textContent = 'All 3 filled! 🚀';
+        progressText.style.color = 'var(--emerald-accent)';
+      }
+    }
+  }
+
+  [nameInput, emailInput, collegeInput].forEach(inp => {
+    if (inp) inp.addEventListener('input', updateGateProgress);
+  });
 
   if (closeBtn && modal) {
     closeBtn.addEventListener('click', () => {
@@ -399,7 +452,6 @@ function initEntryGate() {
     });
   }
 
-  // Close on outside click
   if (modal) {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) modal.classList.remove('open');
@@ -410,9 +462,9 @@ function initEntryGate() {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      const name = (document.getElementById('gateName').value || '').trim();
-      const email = (document.getElementById('gateEmail').value || '').trim();
-      const college = (document.getElementById('gateCollege').value || '').trim();
+      const name = (nameInput.value || '').trim();
+      const email = (emailInput.value || '').trim();
+      const college = (collegeInput.value || '').trim();
       const errorMsg = document.getElementById('gateError');
       const submitBtn = document.getElementById('gateSubmitBtn');
 
@@ -422,7 +474,7 @@ function initEntryGate() {
       if (email.length > 0) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-          errorMsg.textContent = "Please enter a valid email address (e.g. pratik@gmail.com).";
+          errorMsg.textContent = "Please enter a valid email address (e.g. rahul@gmail.com).";
           errorMsg.style.display = 'block';
           return;
         }
@@ -442,7 +494,7 @@ function initEntryGate() {
 
       // Proceed to save
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Unlocking...</span>`;
+      submitBtn.innerHTML = `<span>Unlocking Questions...</span>`;
 
       try {
         if (state.isConfigured && state.supabase) {
@@ -483,7 +535,6 @@ function openEntryGateModal() {
  * 7. Filter & Search Controls
  */
 function initFilterControls() {
-  // Search input
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {

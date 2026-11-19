@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Diploma World MSBTE | Important Questions for MSBTE Exams</title>
+  <title>Diploma World MSBTE | Official Important Questions & Exam Hub</title>
   
   <!-- SEO & OpenGraph Meta Tags for WhatsApp & Social Sharing -->
-  <meta name="description" content="Important Questions (IMP) for MSBTE K-Scheme & I-Scheme Diploma Engineering exams. Handpicked questions for computer, IT, mechanical, civil, and electrical diploma students.">
-  <meta name="keywords" content="MSBTE IMP Questions, Diploma World MSBTE, MSBTE Exam 2026, K-Scheme IMP Questions, MSBTE Model Answers, Maharashtra Polytechnic">
+  <meta name="description" content="Important Questions (IMP) for MSBTE K-Scheme & I-Scheme Diploma Engineering exams. Handpicked questions for computer, IT, mechanical, civil, and electrical diploma students in Maharashtra.">
+  <meta name="keywords" content="MSBTE IMP Questions, Diploma World MSBTE, MSBTE Exam 2026, K-Scheme IMP Questions, MSBTE Model Answers, Maharashtra Polytechnic, Pratik Diploma">
   <meta name="author" content="Pratik - Diploma World MSBTE">
 
   <!-- OpenGraph / WhatsApp Link Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Diploma World MSBTE - Important Exam Questions">
-  <meta property="og:description" content="Top 10 High-Yield IMP Questions for upcoming MSBTE Diploma Exams. K-Scheme & I-Scheme. Handpicked by Pratik.">
+  <meta property="og:title" content="Diploma World MSBTE - Official Exam IMP Questions">
+  <meta property="og:description" content="Top 10 High-Yield IMP Questions for upcoming MSBTE Diploma Exams. K-Scheme & I-Scheme. Curated by Pratik.">
   <meta property="og:image" content="assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Diploma World MSBTE - Important Exam Questions">
+  <meta name="twitter:title" content="Diploma World MSBTE - Official Exam IMP Questions">
   <meta name="twitter:description" content="Get high-yield Important Questions for MSBTE Board Exams. Verified K-Scheme questions.">
   <meta name="twitter:image" content="assets/og-image.png">
 
@@ -32,22 +32,17 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Supabase JS Client (via Official CDN) -->
+  <!-- Supabase JS Client (via CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
-  <!-- Optional Setup Notice if SUPABASE_URL not yet replaced -->
-  <div id="setupBanner" class="setup-banner" style="display: none;">
-    ⚠️ <strong>Supabase Connection Setup:</strong> Enter your Supabase Project URL in <code>config.js</code> to link your live database! Demo questions are shown currently.
-  </div>
 
   <!-- STICKY NAVBAR -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="#home" class="nav-brand">
         <div class="nav-logo-wrap">
-          <img src="assets/logo.png" alt="Diploma World MSBTE Logo" width="42" height="42">
+          <img src="assets/logo.png" alt="Diploma World MSBTE Logo" width="44" height="44">
         </div>
         <div class="brand-text-wrap">
           <span class="brand-title">Diploma World</span>
@@ -72,19 +67,19 @@
     <section id="home" class="hero">
       <div class="container">
         
-        <div class="hero-badge">
-          <span>🎓</span>
-          <span>MSBTE Diploma Maharashtra</span>
+        <div class="hero-pill-badge">
+          <div class="hero-pill-dot"></div>
+          <span>MSBTE DIPLOMA • MAHARASHTRA STATE BOARD</span>
         </div>
 
         <div class="hero-logo-box">
-          <img src="assets/logo.png" alt="Diploma World MSBTE" class="hero-logo-img" width="110" height="110">
+          <img src="assets/logo.png" alt="Diploma World MSBTE" class="hero-logo-img" width="124" height="124">
         </div>
 
         <h1 class="hero-title">Diploma World MSBTE</h1>
         <p class="hero-tagline">Important Questions for MSBTE Exams</p>
         <p class="hero-sub">
-          Targeted, high-yield Important Questions (IMP) and last-minute exam prep tailored for K-Scheme & I-Scheme diploma students.
+          Targeted, high-yield Important Questions (IMP) and last-minute exam prep tailored for K-Scheme & I-Scheme diploma students across Maharashtra.
         </p>
 
         <!-- Big CTA Buttons -->
@@ -104,12 +99,22 @@
           </a>
         </div>
 
-        <!-- Real Visitor Counter -->
-        <div class="visitor-counter-wrap">
-          <div class="pulse-dot"></div>
-          <span class="visitor-counter-text">
-            👁️ <span id="visitorCounter" class="visitor-counter-number">--</span> Diploma Students Visited
-          </span>
+        <!-- Real Visitor Counter & Trust Chips -->
+        <div class="stats-banner-row">
+          <div class="stat-chip">
+            <div class="pulse-emerald"></div>
+            <span>👁️ <strong id="visitorCounter" class="counter-num-strong">--</strong> Students Visited</span>
+          </div>
+
+          <div class="stat-chip">
+            <span>🎯</span>
+            <span>K-Scheme & I-Scheme</span>
+          </div>
+
+          <div class="stat-chip">
+            <span>⚡</span>
+            <span>100% Free Verified IMPs</span>
+          </div>
         </div>
 
       </div>
@@ -119,49 +124,52 @@
     <section id="questions" class="section-imp">
       <div class="container">
         
-        <div class="section-header">
-          <span class="section-tag">High Probability Board Questions</span>
-          <h2 class="section-title">MSBTE Important Questions (IMP)</h2>
-          <p class="section-desc">Handpicked questions updated before each examination. Filter by semester & scheme.</p>
+        <div class="section-head-wrap">
+          <span class="section-pill-tag">
+            <span>⚡</span>
+            <span>High Probability Board Questions</span>
+          </span>
+          <h2 class="section-main-heading">MSBTE Important Questions (IMP)</h2>
+          <p class="section-subtext">Handpicked questions updated before each examination. Filter by semester & scheme.</p>
         </div>
 
         <!-- Filter & Search Bar -->
-        <div class="filter-bar">
-          <div class="search-box-wrap">
-            <svg class="search-icon" viewBox="0 0 24 24">
+        <div class="filter-toolbar">
+          <div class="search-input-wrap">
+            <svg class="search-icon-svg" viewBox="0 0 24 24">
               <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
             </svg>
-            <input type="text" id="searchInput" class="search-input" placeholder="Search subject (e.g. Operating Systems, DSU, Java)...">
+            <input type="text" id="searchInput" class="search-input-modern" placeholder="Search subject (e.g. Operating Systems, DSU, Java)...">
           </div>
 
-          <div class="filter-group-row">
+          <div class="filter-segments-row">
             <!-- Semester Filter Pills -->
-            <div class="filter-pills-wrap">
-              <span class="filter-label">Semester:</span>
-              <button class="pill-btn active" data-filter-sem="all">All Sem</button>
-              <button class="pill-btn" data-filter-sem="sem 1">Sem 1</button>
-              <button class="pill-btn" data-filter-sem="sem 2">Sem 2</button>
-              <button class="pill-btn" data-filter-sem="sem 3">Sem 3</button>
-              <button class="pill-btn" data-filter-sem="sem 4">Sem 4</button>
-              <button class="pill-btn" data-filter-sem="sem 5">Sem 5</button>
-              <button class="pill-btn" data-filter-sem="sem 6">Sem 6</button>
+            <div class="segmented-group">
+              <span class="segment-label">Semester:</span>
+              <button class="seg-btn active" data-filter-sem="all">All Sem</button>
+              <button class="seg-btn" data-filter-sem="sem 1">Sem 1</button>
+              <button class="seg-btn" data-filter-sem="sem 2">Sem 2</button>
+              <button class="seg-btn" data-filter-sem="sem 3">Sem 3</button>
+              <button class="seg-btn" data-filter-sem="sem 4">Sem 4</button>
+              <button class="seg-btn" data-filter-sem="sem 5">Sem 5</button>
+              <button class="seg-btn" data-filter-sem="sem 6">Sem 6</button>
             </div>
 
             <!-- Scheme Filter Pills -->
-            <div class="filter-pills-wrap">
-              <span class="filter-label">Scheme:</span>
-              <button class="pill-btn active" data-filter-scheme="all">All Schemes</button>
-              <button class="pill-btn" data-filter-scheme="k-scheme">K-Scheme</button>
-              <button class="pill-btn" data-filter-scheme="i-scheme">I-Scheme</button>
+            <div class="segmented-group">
+              <span class="segment-label">Scheme:</span>
+              <button class="seg-btn active" data-filter-scheme="all">All Schemes</button>
+              <button class="seg-btn" data-filter-scheme="k-scheme">K-Scheme</button>
+              <button class="seg-btn" data-filter-scheme="i-scheme">I-Scheme</button>
             </div>
           </div>
         </div>
 
-        <!-- Cards Container -->
+        <!-- Cards Grid Container -->
         <div id="postsContainer" class="posts-grid">
-          <div class="loading-box">
-            <div class="spinner"></div>
-            <p>Loading latest MSBTE IMP Questions...</p>
+          <div class="loading-box" style="text-align: center; padding: 4rem 1.5rem; grid-column: 1 / -1;">
+            <div class="spinner-pro"></div>
+            <p style="color: #94a3b8; font-weight: 600;">Loading latest MSBTE IMP Questions...</p>
           </div>
         </div>
 
@@ -172,42 +180,47 @@
     <section id="about" class="section-about">
       <div class="container">
         
-        <div class="about-card">
-          <div class="about-avatar-wrap">
-            <img src="assets/logo.png" alt="Pratik - Diploma World MSBTE" width="90" height="90">
+        <div class="about-card-pro">
+          <div class="about-avatar-halo">
+            <img src="assets/logo.png" alt="Pratik - Diploma World MSBTE" width="96" height="96">
           </div>
 
-          <h3 class="about-name">Pratik</h3>
-          <p class="about-role">Educator & Mentor • Diploma World MSBTE</p>
-          <p class="about-bio">
+          <div class="about-verified-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Verified MSBTE Educator</span>
+          </div>
+
+          <h3 class="about-name-pro">Pratik</h3>
+          <p class="about-sub-role">Founder & Mentor • Diploma World MSBTE</p>
+          <p class="about-bio-pro">
             Hey Diploma Engineers! I'm <strong>Pratik</strong> from <strong>Diploma World MSBTE</strong>. 
             We provide targeted, high-yield Important Questions (IMP), practical guidance, and last-night exam tips tailored for MSBTE K-Scheme & I-Scheme students across Maharashtra. Follow our channels for rapid updates!
           </p>
 
           <!-- Social Icon Buttons -->
-          <div class="social-buttons-row">
-            <a id="aboutBtnYt" href="#" target="_blank" rel="noopener noreferrer" class="social-btn yt">
+          <div class="social-buttons-grid">
+            <a id="aboutBtnYt" href="#" target="_blank" rel="noopener noreferrer" class="social-pill-btn yt">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
               <span>YouTube</span>
             </a>
 
-            <a id="aboutBtnWa" href="#" target="_blank" rel="noopener noreferrer" class="social-btn wa">
+            <a id="aboutBtnWa" href="#" target="_blank" rel="noopener noreferrer" class="social-pill-btn wa">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.031 2C6.495 2 2 6.494 2 12.029c0 1.97.57 3.81 1.56 5.37L2 22l4.77-1.52c1.51.92 3.27 1.45 5.261 1.45 5.535 0 10.03-4.495 10.03-10.03C22.061 6.494 17.566 2 12.031 2zm5.88 14.15c-.25.7-1.42 1.35-1.97 1.44-.51.08-1.16.12-3.74-.95-3.13-1.3-5.14-4.5-5.3-4.71-.15-.22-1.28-1.7-1.28-3.24 0-1.54.81-2.3 1.09-2.61.29-.31.63-.39.84-.39.21 0 .42 0 .61.01.2.01.47-.08.73.55.27.64.91 2.22.99 2.38.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.18.33.82 1.35 1.77 2.19 1.21 1.08 2.23 1.42 2.55 1.58.32.16.51.13.7-.08.19-.22.81-.94 1.03-1.26.22-.32.43-.27.73-.16.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.77-.17 1.47z"/>
               </svg>
               <span>WhatsApp Channel</span>
             </a>
 
-            <a id="aboutBtnIg" href="#" target="_blank" rel="noopener noreferrer" class="social-btn ig">
+            <a id="aboutBtnIg" href="#" target="_blank" rel="noopener noreferrer" class="social-pill-btn ig">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
               <span>Instagram</span>
             </a>
 
-            <a id="aboutBtnX" href="#" target="_blank" rel="noopener noreferrer" class="social-btn tw">
+            <a id="aboutBtnX" href="#" target="_blank" rel="noopener noreferrer" class="social-pill-btn tw">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
@@ -221,43 +234,67 @@
     </section>
   </main>
 
-  <!-- ENTRY GATE MODAL (Must fill ANY 2 of 3) -->
+  <!-- ENTRY GATE MODAL (Requires ANY 2 of 3) -->
   <div id="entryGateModal" class="modal-backdrop">
-    <div class="modal-window">
+    <div class="modal-window-pro">
       <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal">&times;</button>
       
-      <div class="modal-header-icon">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <div class="modal-header-icon-pro">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
         </svg>
       </div>
 
-      <h3 class="modal-title">Unlock MSBTE IMP Questions</h3>
-      <p class="modal-subtitle">Get instant free access to all verified exam questions and model solutions.</p>
+      <h3 class="modal-title-pro">Unlock MSBTE Questions</h3>
+      <p class="modal-subtitle-pro">Get free access to handpicked exam questions & model solutions.</p>
       
-      <span class="modal-rule-pill">⚡ Requirement: Fill at least ANY 2 of 3 fields below</span>
+      <!-- Interactive Progress Track -->
+      <div class="gate-progress-card">
+        <div class="gate-progress-text-row">
+          <span style="color: var(--text-muted);">Requirement: Any 2 details</span>
+          <span id="gateProgressText" style="color: var(--gold-accent);">0 of 2 filled</span>
+        </div>
+        <div class="progress-track">
+          <div id="gateProgressBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
 
       <form id="entryGateForm" novalidate>
-        <div id="gateError" class="form-error-msg"></div>
+        <div id="gateError" class="form-error-msg-pro"></div>
 
-        <div class="form-group">
-          <label class="form-label" for="gateName">Full Name</label>
-          <input type="text" id="gateName" class="form-input" placeholder="e.g. Rahul Patil">
+        <div class="form-group-pro">
+          <label class="form-label-pro" for="gateName">Full Name</label>
+          <div class="input-with-icon">
+            <svg class="input-icon-svg" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <input type="text" id="gateName" class="form-input-pro" placeholder="e.g. Rahul Patil">
+          </div>
         </div>
 
-        <div class="form-group">
-          <label class="form-label" for="gateEmail">Email Address</label>
-          <input type="email" id="gateEmail" class="form-input" placeholder="e.g. rahul@gmail.com">
+        <div class="form-group-pro">
+          <label class="form-label-pro" for="gateEmail">Email Address</label>
+          <div class="input-with-icon">
+            <svg class="input-icon-svg" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <input type="email" id="gateEmail" class="form-input-pro" placeholder="e.g. rahul@gmail.com">
+          </div>
         </div>
 
-        <div class="form-group">
-          <label class="form-label" for="gateCollege">College / City</label>
-          <input type="text" id="gateCollege" class="form-input" placeholder="e.g. GP Pune / Mumbai">
+        <div class="form-group-pro">
+          <label class="form-label-pro" for="gateCollege">College / City</label>
+          <div class="input-with-icon">
+            <svg class="input-icon-svg" viewBox="0 0 24 24">
+              <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+            </svg>
+            <input type="text" id="gateCollege" class="form-input-pro" placeholder="e.g. GP Pune / Mumbai">
+          </div>
         </div>
 
-        <p class="form-consent">🔒 Your details are used only for exam updates.</p>
+        <p class="form-consent-note">🔒 Your details are used only for exam updates.</p>
 
-        <button type="submit" id="gateSubmitBtn" class="btn-submit-gate">
+        <button type="submit" id="gateSubmitBtn" class="btn-submit-gate-pro">
           <span>Unlock All IMP Questions</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
         </button>
@@ -268,27 +305,27 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-logo-wrap">
-        <img src="assets/logo.png" alt="Diploma World MSBTE" width="34" height="34">
-        <span class="footer-brand">Diploma World MSBTE</span>
+      <div class="footer-logo-row">
+        <img src="assets/logo.png" alt="Diploma World MSBTE" width="36" height="36">
+        <span class="footer-brand-title">Diploma World MSBTE</span>
       </div>
 
-      <div class="footer-socials">
-        <a id="footerYt" href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
+      <div class="footer-icons-row">
+        <a id="footerYt" href="#" target="_blank" rel="noopener noreferrer" class="footer-icon-circle" aria-label="YouTube">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
-        <a id="footerWa" href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="WhatsApp Channel">
+        <a id="footerWa" href="#" target="_blank" rel="noopener noreferrer" class="footer-icon-circle" aria-label="WhatsApp Channel">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 2C6.495 2 2 6.494 2 12.029c0 1.97.57 3.81 1.56 5.37L2 22l4.77-1.52c1.51.92 3.27 1.45 5.261 1.45 5.535 0 10.03-4.495 10.03-10.03C22.061 6.494 17.566 2 12.031 2zm5.88 14.15c-.25.7-1.42 1.35-1.97 1.44-.51.08-1.16.12-3.74-.95-3.13-1.3-5.14-4.5-5.3-4.71-.15-.22-1.28-1.7-1.28-3.24 0-1.54.81-2.3 1.09-2.61.29-.31.63-.39.84-.39.21 0 .42 0 .61.01.2.01.47-.08.73.55.27.64.91 2.22.99 2.38.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.18.33.82 1.35 1.77 2.19 1.21 1.08 2.23 1.42 2.55 1.58.32.16.51.13.7-.08.19-.22.81-.94 1.03-1.26.22-.32.43-.27.73-.16.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.13.08.77-.17 1.47z"/></svg>
         </a>
-        <a id="footerIg" href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+        <a id="footerIg" href="#" target="_blank" rel="noopener noreferrer" class="footer-icon-circle" aria-label="Instagram">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a id="footerX" href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (Twitter)">
+        <a id="footerX" href="#" target="_blank" rel="noopener noreferrer" class="footer-icon-circle" aria-label="X (Twitter)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
       </div>
 
-      <p class="footer-copyright">
+      <p class="footer-credits">
         &copy; 2026 Diploma World MSBTE. All rights reserved. Made with ❤️ for MSBTE Students across Maharashtra.
       </p>
     </div>
