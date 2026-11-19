@@ -47,11 +47,11 @@ export default function QuestionCard({ post, isUnlocked, onUnlockClick, showToas
   };
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-md hover:border-slate-700 transition-all flex flex-col justify-between group">
+    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-md hover:border-slate-700 transition-all flex flex-col justify-between group">
       
       <div>
         {/* Top Badges */}
-        <div className="flex flex-wrap items-center gap-2 mb-3.5">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3">
           <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/25">
             {post.scheme}
           </span>
@@ -73,17 +73,17 @@ export default function QuestionCard({ post, isUnlocked, onUnlockClick, showToas
         </div>
 
         {/* Title & Subject */}
-        <h3 className="font-heading font-extrabold text-lg sm:text-xl text-white tracking-tight leading-snug mb-1 group-hover:text-blue-400 transition-colors">
+        <h3 className="font-heading font-extrabold text-base sm:text-xl text-white tracking-tight leading-snug mb-1 group-hover:text-blue-400 transition-colors">
           {post.title}
         </h3>
-        <p className="text-sm font-semibold text-sky-400 mb-5 flex items-center gap-1.5">
+        <p className="text-xs sm:text-sm font-semibold text-sky-400 mb-4 sm:mb-5 flex items-center gap-1.5">
           <BookOpen className="w-4 h-4 text-sky-400 flex-shrink-0" />
           <span>{post.subject}</span>
         </p>
 
         {/* Questions Box */}
         {isUnlocked ? (
-          <div className="bg-[#0b1120] border border-slate-800/80 rounded-xl p-4 mb-4">
+          <div className="bg-[#0b1120] border border-slate-800/80 rounded-xl p-3 sm:p-4 mb-4">
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs text-slate-400 font-semibold">
               <span>Questions List ({questionsList.length})</span>
               <div className="flex items-center gap-2">

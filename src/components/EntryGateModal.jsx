@@ -69,8 +69,8 @@ export default function EntryGateModal({ isOpen, onClose, onSuccess, showToast }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-md bg-[#131d31] border border-slate-700 rounded-2xl p-6 sm:p-7 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-md bg-[#131d31] border border-slate-700 rounded-2xl p-5 sm:p-7 shadow-2xl max-h-[92vh] overflow-y-auto">
         
         {/* Close Button */}
         <button

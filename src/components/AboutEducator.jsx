@@ -43,45 +43,45 @@ export default function AboutEducator() {
             {APP_CONFIG.AUTHOR_BIO}
           </p>
 
-          {/* Official Social Links */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          {/* Official Social Links (2x2 Grid on mobile) */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             <a
               href={APP_CONFIG.SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-red-500/50 hover:bg-red-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
+              className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-red-500/50 hover:bg-red-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
             >
-              <YouTubeIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
-              <span>YouTube Channel</span>
+              <YouTubeIcon className="w-4 h-4 transition-transform group-hover:scale-110 flex-shrink-0" />
+              <span>YouTube</span>
             </a>
 
             <a
               href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-emerald-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
+              className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-emerald-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
             >
-              <WhatsAppIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
-              <span>WhatsApp Channel</span>
+              <WhatsAppIcon className="w-4 h-4 transition-transform group-hover:scale-110 flex-shrink-0" />
+              <span>WhatsApp</span>
             </a>
 
             <a
               href={APP_CONFIG.SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-pink-500/50 hover:bg-pink-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
+              className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-pink-500/50 hover:bg-pink-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
             >
-              <InstagramIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
-              <span>Instagram DM</span>
+              <InstagramIcon className="w-4 h-4 transition-transform group-hover:scale-110 flex-shrink-0" />
+              <span>Instagram</span>
             </a>
 
             <a
               href={APP_CONFIG.SOCIAL_LINKS.x}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-sky-500/50 hover:bg-sky-500/10 text-slate-200 hover:text-sky-400 text-xs font-bold transition-all"
+              className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-sky-500/50 hover:bg-sky-500/10 text-slate-200 hover:text-sky-400 text-xs font-bold transition-all"
             >
-              <Twitter className="w-4 h-4 text-sky-400" />
+              <Twitter className="w-4 h-4 text-sky-400 flex-shrink-0" />
               <span>X (Twitter)</span>
             </a>
           </div>

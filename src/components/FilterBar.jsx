@@ -29,11 +29,11 @@ export default function FilterBar({
       </div>
 
       {/* Filter Tabs Row */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pt-1">
         
         {/* Semester Segmented Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1.5 flex items-center gap-1 flex-shrink-0">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 md:pb-0 touch-pan-x scrollbar-none -mx-1 px-1">
+          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1 flex items-center gap-1 flex-shrink-0">
             <Layers className="w-3.5 h-3.5" />
             <span>Sem:</span>
           </span>
@@ -43,21 +43,21 @@ export default function FilterBar({
               <button
                 key={sem}
                 onClick={() => setSelectedSem(sem)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap flex-shrink-0 transition-all active:scale-95 ${
                   isActive
                     ? 'bg-blue-600 text-white shadow-sm'
                     : 'bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
-                {sem === 'all' ? 'All Semesters' : sem}
+                {sem === 'all' ? 'All' : sem}
               </button>
             );
           })}
         </div>
 
         {/* Scheme Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1.5 flex items-center gap-1 flex-shrink-0">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 touch-pan-x scrollbar-none -mx-1 px-1">
+          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1 flex items-center gap-1 flex-shrink-0">
             <BookMarked className="w-3.5 h-3.5" />
             <span>Scheme:</span>
           </span>
@@ -67,13 +67,13 @@ export default function FilterBar({
               <button
                 key={scheme}
                 onClick={() => setSelectedScheme(scheme)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap flex-shrink-0 transition-all active:scale-95 ${
                   isActive
                     ? 'bg-amber-500 text-slate-950 font-extrabold shadow-sm'
                     : 'bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
-                {scheme === 'all' ? 'All Schemes' : scheme}
+                {scheme === 'all' ? 'All' : scheme}
               </button>
             );
           })}

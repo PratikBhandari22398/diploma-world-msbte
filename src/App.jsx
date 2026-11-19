@@ -110,8 +110,8 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-[#080d1a] text-slate-200">
       
       {/* Top Notice */}
-      <div className="bg-[#1e1b4b] border-b border-indigo-900/50 py-1.5 px-4 text-center text-xs text-indigo-200 font-semibold">
-        📢 <strong>MSBTE Diploma Question Banks:</strong> Verified K-Scheme & I-Scheme high-yield exam questions are live!
+      <div className="bg-[#1e1b4b] border-b border-indigo-900/50 py-1.5 px-3 sm:px-4 text-center text-[11px] sm:text-xs text-indigo-200 font-semibold leading-tight">
+        📢 <strong>MSBTE Question Banks:</strong> Verified K-Scheme & I-Scheme high-yield exam questions are live!
       </div>
 
       {/* Sticky Header with Proper Working Nav Options */}
@@ -193,7 +193,7 @@ export default function App() {
       />
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 bg-[#050811] py-8 text-center text-xs text-slate-400 select-none">
+      <footer className="border-t border-slate-800 bg-[#050811] pt-8 pb-24 md:pb-8 text-center text-xs text-slate-400 select-none">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-center gap-2 mb-3">
             <img src="/assets/logo.png" alt="Diploma World MSBTE" className="w-7 h-7 rounded-full border border-amber-500" />
@@ -234,6 +234,31 @@ export default function App() {
           </p>
         </div>
       </footer>
+
+      {/* Sticky Mobile Floating Action Bar (App-like touch experience) */}
+      {currentView === 'public' && (
+        <aside aria-label="Mobile quick actions" className="md:hidden fixed bottom-3 inset-x-3 z-40 bg-[#0b1120]/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-2 shadow-2xl flex items-center justify-between gap-2 shadow-black/80">
+          <a
+            href={APP_CONFIG.SOCIAL_LINKS.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-gradient-to-r from-red-600 to-red-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all"
+          >
+            <YouTubeIcon className="w-4 h-4 flex-shrink-0" />
+            <span className="truncate">YouTube (5.26K+)</span>
+          </a>
+
+          <a
+            href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all"
+          >
+            <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
+            <span className="truncate">WhatsApp PDFs</span>
+          </a>
+        </aside>
+      )}
 
       {/* Toast Notification */}
       {toastMessage && (
