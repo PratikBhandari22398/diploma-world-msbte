@@ -1,6 +1,7 @@
 import React from 'react';
-import { Youtube, MessageCircle, Users, CheckCircle2, BookOpen, Sparkles, TrendingUp } from 'lucide-react';
+import { Users, CheckCircle2, BookOpen, Sparkles, TrendingUp } from 'lucide-react';
 import { APP_CONFIG } from '../lib/supabase';
+import { YouTubeIcon, WhatsAppIcon } from './BrandIcons';
 
 export default function Hero() {
   return (
@@ -35,7 +36,7 @@ export default function Hero() {
             className="w-full sm:w-auto flex-1 flex flex-col items-center justify-center py-3.5 px-6 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white shadow-lg shadow-red-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 border border-red-400/20 group"
           >
             <div className="flex items-center gap-2 font-heading font-extrabold text-sm sm:text-base">
-              <Youtube className="w-5 h-5 fill-current" />
+              <YouTubeIcon className="w-5 h-5 transition-transform group-hover:scale-110" />
               <span>Subscribe on YouTube</span>
             </div>
             <span className="text-[11px] text-red-200 font-medium mt-0.5">
@@ -50,7 +51,7 @@ export default function Hero() {
             className="w-full sm:w-auto flex-1 flex flex-col items-center justify-center py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 border border-emerald-400/20 group"
           >
             <div className="flex items-center gap-2 font-heading font-extrabold text-sm sm:text-base">
-              <MessageCircle className="w-5 h-5 fill-current" />
+              <WhatsAppIcon className="w-5 h-5 transition-transform group-hover:scale-110" />
               <span>Join WhatsApp Channel</span>
             </div>
             <span className="text-[11px] text-emerald-200 font-medium mt-0.5">
@@ -66,7 +67,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
             </span>
-            <Youtube className="w-4 h-4 text-red-500" />
+            <YouTubeIcon className="w-4 h-4" />
             <span><strong className="text-white font-bold text-sm">5.26K+</strong> YouTube Subscribers</span>
           </div>
 

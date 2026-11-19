@@ -7,6 +7,7 @@ import EntryGateModal from './components/EntryGateModal';
 import AboutEducator from './components/AboutEducator';
 import AdminDashboard from './components/AdminDashboard';
 import { supabase, APP_CONFIG } from './lib/supabase';
+import { YouTubeIcon, WhatsAppIcon, InstagramIcon } from './components/BrandIcons';
 
 export default function App() {
   const [currentView, setCurrentView] = useState('public'); // 'public' | 'admin'
@@ -199,11 +200,22 @@ export default function App() {
             <span className="font-heading font-extrabold text-white text-sm">Diploma World MSBTE</span>
           </div>
 
-          <div className="flex justify-center gap-4 mb-4 text-slate-400">
-            <a href={APP_CONFIG.SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors">YouTube</a>
-            <a href={APP_CONFIG.SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp</a>
-            <a href={APP_CONFIG.SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors">Instagram</a>
-            <a href={APP_CONFIG.SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition-colors">X (Twitter)</a>
+          <div className="flex flex-wrap items-center justify-center gap-5 mb-4 text-slate-300">
+            <a href={APP_CONFIG.SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition-colors group">
+              <YouTubeIcon className="w-3.5 h-3.5 transition-transform group-hover:scale-110" />
+              <span>YouTube</span>
+            </a>
+            <a href={APP_CONFIG.SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition-colors group">
+              <WhatsAppIcon className="w-3.5 h-3.5 transition-transform group-hover:scale-110" />
+              <span>WhatsApp</span>
+            </a>
+            <a href={APP_CONFIG.SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition-colors group">
+              <InstagramIcon className="w-3.5 h-3.5 transition-transform group-hover:scale-110" />
+              <span>Instagram</span>
+            </a>
+            <a href={APP_CONFIG.SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition-colors">
+              X (Twitter)
+            </a>
           </div>
 
           <p className="text-slate-500 max-w-xl mx-auto mb-2 text-[11px] leading-relaxed">

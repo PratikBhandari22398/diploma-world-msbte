@@ -1,6 +1,7 @@
 import React from 'react';
-import { Youtube, MessageCircle, Instagram, Twitter, CheckCircle2, Award } from 'lucide-react';
+import { Twitter, CheckCircle2 } from 'lucide-react';
 import { APP_CONFIG } from '../lib/supabase';
+import { YouTubeIcon, WhatsAppIcon, InstagramIcon } from './BrandIcons';
 
 export default function AboutEducator() {
   return (
@@ -32,7 +33,7 @@ export default function AboutEducator() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500/15 via-purple-500/15 to-amber-500/15 border border-pink-500/30 text-pink-300 hover:text-white text-xs sm:text-sm font-bold tracking-wide transition-all hover:scale-105 hover:border-pink-400 shadow-sm shadow-pink-500/10 cursor-pointer"
               title="Send DM on Instagram"
             >
-              <Instagram className="w-4 h-4 text-pink-400" />
+              <InstagramIcon className="w-4 h-4" />
               <span>Any doubt? Instagram pe DM karo</span>
               <span className="text-[11px] text-pink-400/80 font-medium">(@diplo.verse)</span>
             </a>
@@ -48,19 +49,19 @@ export default function AboutEducator() {
               href={APP_CONFIG.SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-red-500/50 hover:bg-red-500/10 text-slate-200 hover:text-red-400 text-xs font-bold transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-red-500/50 hover:bg-red-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
             >
-              <Youtube className="w-4 h-4 text-red-500" />
-              <span>YouTube</span>
+              <YouTubeIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
+              <span>YouTube Channel</span>
             </a>
 
             <a
               href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-emerald-500/10 text-slate-200 hover:text-emerald-400 text-xs font-bold transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-500/50 hover:bg-emerald-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-500" />
+              <WhatsAppIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
               <span>WhatsApp Channel</span>
             </a>
 
@@ -68,10 +69,10 @@ export default function AboutEducator() {
               href={APP_CONFIG.SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-pink-500/50 hover:bg-pink-500/10 text-slate-200 hover:text-pink-400 text-xs font-bold transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-pink-500/50 hover:bg-pink-500/10 text-slate-200 hover:text-white text-xs font-bold transition-all group"
             >
-              <Instagram className="w-4 h-4 text-pink-500" />
-              <span>Instagram</span>
+              <InstagramIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
+              <span>Instagram DM</span>
             </a>
 
             <a

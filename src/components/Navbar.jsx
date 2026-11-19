@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Youtube, MessageCircle, Shield } from 'lucide-react';
+import { Shield } from 'lucide-react';
 import { APP_CONFIG } from '../lib/supabase';
+import { YouTubeIcon, WhatsAppIcon } from './BrandIcons';
 
 export default function Navbar({ currentView, setCurrentView }) {
   // Secret: Triple click on logo opens Admin Panel
@@ -81,10 +82,10 @@ export default function Navbar({ currentView, setCurrentView }) {
               href={APP_CONFIG.SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600/15 hover:bg-red-600 text-red-400 hover:text-white border border-red-500/30 text-xs font-bold transition-all shadow-sm"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600/10 hover:bg-red-600/20 text-slate-200 hover:text-white border border-red-500/30 text-xs font-bold transition-all shadow-sm group"
               title="Subscribe on YouTube"
             >
-              <Youtube className="w-3.5 h-3.5 fill-current" />
+              <YouTubeIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
               <span className="hidden md:inline">Subscribe</span>
             </a>
 
@@ -92,10 +93,10 @@ export default function Navbar({ currentView, setCurrentView }) {
               href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600/15 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 text-xs font-bold transition-all shadow-sm"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600/10 hover:bg-emerald-600/20 text-slate-200 hover:text-white border border-emerald-500/30 text-xs font-bold transition-all shadow-sm group"
               title="Join WhatsApp Channel"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-current" />
+              <WhatsAppIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
               <span className="hidden md:inline">WhatsApp</span>
             </a>
           </div>
