@@ -1,15 +1,15 @@
 /**
  * ==============================================================================
- * DIPLOMA WORLD MSBTE - ULTRA-PREMIUM APPLICATION LOGIC
+ * DIPLOMA WORLD MSBTE - AUTHENTIC EDUCATIONAL LOGIC
  * ==============================================================================
  */
 
-// Fallback demo posts if offline or during setup
+// Fallback demo posts if offline or during initial setup
 const DEMO_POSTS = [
   {
     id: "demo-1",
     title: "Top 10 IMP Questions - Operating Systems (OSY)",
-    subject: "Operating Systems (313301)",
+    subject: "Operating Systems (Sub Code: 313301)",
     semester: "Sem 3",
     scheme: "K-Scheme",
     exam_date: new Date(Date.now() + 5 * 86400000).toISOString().split('T')[0],
@@ -29,7 +29,7 @@ Explain File Allocation Methods: Contiguous, Linked, and Indexed allocation.`,
   {
     id: "demo-2",
     title: "Top 10 IMP Questions - Data Structures using C (DSU)",
-    subject: "Data Structures (313302)",
+    subject: "Data Structures (Sub Code: 313302)",
     semester: "Sem 3",
     scheme: "K-Scheme",
     exam_date: new Date(Date.now() + 8 * 86400000).toISOString().split('T')[0],
@@ -49,7 +49,7 @@ Explain BFS (Breadth First Search) and DFS (Depth First Search) Graph Traversal 
   {
     id: "demo-3",
     title: "Top 10 IMP Questions - Java Programming (JPR)",
-    subject: "Java Programming (314301)",
+    subject: "Java Programming (Sub Code: 314301)",
     semester: "Sem 4",
     scheme: "K-Scheme",
     exam_date: new Date(Date.now() + 12 * 86400000).toISOString().split('T')[0],
@@ -185,13 +185,13 @@ async function initVisitorTracking() {
     }
   }
 
-  // Graceful fallback if database setup in progress
+  // Graceful fallback
   animateCounter(counterEl, 142);
 }
 
 function animateCounter(el, targetNumber) {
   let current = 0;
-  const duration = 1200;
+  const duration = 1000;
   const stepTime = 25;
   const steps = duration / stepTime;
   const increment = Math.max(1, Math.floor(targetNumber / steps));
@@ -237,7 +237,7 @@ async function fetchPosts() {
 }
 
 /**
- * 5. Render Filtered IMP Posts (Ultra-Premium Tech Look)
+ * 5. Render Filtered IMP Posts (Academic Question Paper Look)
  */
 function renderPosts() {
   const container = document.getElementById('postsContainer');
@@ -266,10 +266,9 @@ function renderPosts() {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div style="text-align: center; padding: 4rem 1.5rem; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); grid-column: 1 / -1;">
-        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
-        <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin-bottom: 0.35rem;">No IMP Questions Found</h3>
-        <p style="color: var(--text-muted); font-size: 0.92rem;">Try clearing your search query or switching semester filters.</p>
+      <div style="text-align: center; padding: 3.5rem 1.5rem; background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: var(--radius-md); grid-column: 1 / -1;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.35rem;">No Question Papers Found</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Try clearing your search query or selecting another semester.</p>
       </div>
     `;
     return;
@@ -306,20 +305,20 @@ function renderPosts() {
     let questionsHtml = '';
     if (state.isUnlocked) {
       questionsHtml = `
-        <div class="questions-box-pro">
-          <div class="questions-header-bar">
-            <span class="q-count-badge">Questions (${questionsCount})</span>
-            <button class="btn-copy-card-pro" onclick="copyQuestions('${encodeURIComponent(post.questions)}')">
+        <div class="paper-questions-box">
+          <div class="questions-bar-top">
+            <span class="questions-count-text">Questions List (${questionsCount})</span>
+            <button class="btn-copy-questions" onclick="copyQuestions('${encodeURIComponent(post.questions)}')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M16 1H4C2.9 1 2 1.9 2 3v14h2V3h12V1zm3 4H8C6.9 5 6 5.9 6 7v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
               </svg>
               <span>Copy All</span>
             </button>
           </div>
-          <ul class="questions-list-pro">
+          <ul class="academic-questions-list">
             ${questionsArray.map((q, idx) => `
-              <li class="question-row">
-                <span class="q-number-pill">${String(idx + 1).padStart(2, '0')}</span>
+              <li class="academic-q-item">
+                <span class="academic-q-prefix">Q.${idx + 1}</span>
                 <span>${escapeHtml(q)}</span>
               </li>
             `).join('')}
@@ -330,39 +329,39 @@ function renderPosts() {
       // Locked Preview State
       const previewSlice = questionsArray.slice(0, 2);
       questionsHtml = `
-        <div class="questions-box-pro locked-cover-pro">
-          <div class="locked-blur-pro">
-            <div class="questions-header-bar">
-              <span class="q-count-badge">Questions (${questionsCount})</span>
+        <div class="paper-questions-box locked-container">
+          <div class="locked-blur-content">
+            <div class="questions-bar-top">
+              <span class="questions-count-text">Questions List (${questionsCount})</span>
             </div>
-            <ul class="questions-list-pro">
+            <ul class="academic-questions-list">
               ${previewSlice.map((q, idx) => `
-                <li class="question-row">
-                  <span class="q-number-pill">${String(idx + 1).padStart(2, '0')}</span>
+                <li class="academic-q-item">
+                  <span class="academic-q-prefix">Q.${idx + 1}</span>
                   <span>${escapeHtml(q)}</span>
                 </li>
               `).join('')}
-              <li class="question-row">
-                <span class="q-number-pill">03</span>
-                <span>[Exam Question Locked - Tap unlock below]</span>
+              <li class="academic-q-item">
+                <span class="academic-q-prefix">Q.3</span>
+                <span>[Exam Question Locked - Fill details to view full list]</span>
               </li>
-              <li class="question-row">
-                <span class="q-number-pill">04</span>
-                <span>[Exam Question Locked - Tap unlock below]</span>
+              <li class="academic-q-item">
+                <span class="academic-q-prefix">Q.4</span>
+                <span>[Exam Question Locked - Fill details to view full list]</span>
               </li>
             </ul>
           </div>
-          <div class="locked-overlay-pro">
-            <div class="locked-shield-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <div class="locked-prompt-card">
+            <div class="locked-lock-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
               </svg>
             </div>
-            <h4 class="locked-heading">Unlock All IMP Questions</h4>
-            <p class="locked-caption">Fill any 2 simple details to view all ${questionsCount} board questions instantly.</p>
-            <button class="btn-unlock-pro" onclick="openEntryGateModal()">
-              <span>Unlock Questions</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            <h4 class="locked-title-text">Unlock Full Question Paper</h4>
+            <p class="locked-desc-text">Enter any 2 basic details to unlock all ${questionsCount} board exam questions.</p>
+            <button class="btn-unlock-modal" onclick="openEntryGateModal()">
+              <span>Unlock Now</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
             </button>
           </div>
         </div>
@@ -376,24 +375,21 @@ function renderPosts() {
     });
 
     return `
-      <div class="post-card">
-        <div class="card-badge-row">
-          <span class="card-badge scheme">${escapeHtml(post.scheme)}</span>
-          <span class="card-badge sem">${escapeHtml(post.semester)}</span>
-          ${examDateStr ? `<span class="card-badge exam">📅 Exam: ${examDateStr}</span>` : ''}
-          ${isUpdatedToday ? `<span class="card-badge updated-today">🔥 Updated Today</span>` : ''}
+      <div class="paper-card">
+        <div class="card-top-tags">
+          <span class="tag-badge tag-scheme">${escapeHtml(post.scheme)}</span>
+          <span class="tag-badge tag-sem">${escapeHtml(post.semester)}</span>
+          ${examDateStr ? `<span class="tag-badge tag-exam">📅 Exam: ${examDateStr}</span>` : ''}
+          ${isUpdatedToday ? `<span class="tag-badge tag-updated">🔥 Updated Today</span>` : ''}
         </div>
-        <h3 class="card-title">${escapeHtml(post.title)}</h3>
-        <p class="card-subject-line">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-          <span>${escapeHtml(post.subject)}</span>
-        </p>
+        <h3 class="card-paper-title">${escapeHtml(post.title)}</h3>
+        <p class="card-sub-code">${escapeHtml(post.subject)}</p>
         
         ${questionsHtml}
 
-        <div class="card-bottom-info">
+        <div class="card-footer-bar">
           <span>Posted: ${postedFormatted}</span>
-          <span style="color: var(--gold-accent); font-weight: 700;">MSBTE Board Verified</span>
+          <span style="font-weight: 600; color: var(--text-muted);">MSBTE Syllabus</span>
         </div>
       </div>
     `;
@@ -401,7 +397,7 @@ function renderPosts() {
 }
 
 /**
- * 6. Entry Gate Modal Logic (With Live Progress Bar)
+ * 6. Entry Gate Modal Logic (Requires ANY 2 of 3)
  */
 function initEntryGate() {
   const modal = document.getElementById('entryGateModal');
@@ -411,40 +407,6 @@ function initEntryGate() {
   const nameInput = document.getElementById('gateName');
   const emailInput = document.getElementById('gateEmail');
   const collegeInput = document.getElementById('gateCollege');
-  const progressBar = document.getElementById('gateProgressBar');
-  const progressText = document.getElementById('gateProgressText');
-
-  // Real-time progress updater
-  function updateGateProgress() {
-    let filled = 0;
-    if (nameInput && nameInput.value.trim().length > 0) filled++;
-    if (emailInput && emailInput.value.trim().length > 0) filled++;
-    if (collegeInput && collegeInput.value.trim().length > 0) filled++;
-
-    if (progressBar && progressText) {
-      if (filled === 0) {
-        progressBar.style.width = '0%';
-        progressText.textContent = '0 of 2 filled';
-        progressText.style.color = 'var(--gold-accent)';
-      } else if (filled === 1) {
-        progressBar.style.width = '50%';
-        progressText.textContent = '1 of 2 filled (1 more to go)';
-        progressText.style.color = 'var(--gold-accent)';
-      } else if (filled === 2) {
-        progressBar.style.width = '100%';
-        progressText.textContent = '2 of 2 ready! 🎉';
-        progressText.style.color = 'var(--emerald-accent)';
-      } else {
-        progressBar.style.width = '100%';
-        progressText.textContent = 'All 3 filled! 🚀';
-        progressText.style.color = 'var(--emerald-accent)';
-      }
-    }
-  }
-
-  [nameInput, emailInput, collegeInput].forEach(inp => {
-    if (inp) inp.addEventListener('input', updateGateProgress);
-  });
 
   if (closeBtn && modal) {
     closeBtn.addEventListener('click', () => {
@@ -494,7 +456,7 @@ function initEntryGate() {
 
       // Proceed to save
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Unlocking Questions...</span>`;
+      submitBtn.innerHTML = `<span>Unlocking...</span>`;
 
       try {
         if (state.isConfigured && state.supabase) {
@@ -517,7 +479,7 @@ function initEntryGate() {
       // Close modal & re-render
       modal.classList.remove('open');
       renderPosts();
-      showToast("🎉 IMP Questions Unlocked! Best of luck for MSBTE Exams!");
+      showToast("🎉 All IMP Questions Unlocked! Best of luck for exams!");
     });
   }
 }
@@ -597,7 +559,7 @@ function showToast(message) {
   toast.classList.add('show');
   setTimeout(() => {
     toast.classList.remove('show');
-  }, 3200);
+  }, 3000);
 }
 
 /**
