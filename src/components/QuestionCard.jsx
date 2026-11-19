@@ -116,42 +116,44 @@ export default function QuestionCard({ post, isUnlocked, onUnlockClick, showToas
             </ul>
           </div>
         ) : (
-          <div className="relative bg-[#0b1120] border border-slate-800/80 rounded-xl p-4 mb-4 overflow-hidden">
-            {/* Blurred Preview */}
-            <div className="filter blur-[4px] select-none opacity-40 pointer-events-none space-y-2.5 text-sm text-slate-300">
-              {questionsList.slice(0, 2).map((q, idx) => (
-                <div key={idx} className="flex items-start gap-2.5">
-                  <span className="font-bold text-amber-400 text-xs">Q.{idx + 1}</span>
-                  <span>{q}</span>
-                </div>
-              ))}
+          <div className="relative bg-[#0b1120] border border-slate-800/80 rounded-xl min-h-[220px] p-5 mb-4 overflow-hidden flex flex-col items-center justify-center">
+            {/* Background Blurred Skeleton / Questions Preview */}
+            <div className="absolute inset-0 p-4 filter blur-[5px] select-none opacity-20 pointer-events-none space-y-2.5 text-xs sm:text-sm text-slate-300">
               <div className="flex items-start gap-2.5">
-                <span className="font-bold text-amber-400 text-xs">Q.3</span>
-                <span>Explain Process Synchronization and Critical Section problem...</span>
+                <span className="font-bold text-amber-400 text-xs font-mono">Q.1</span>
+                <span>{questionsList[0] || 'Explain relational database concepts and architecture...'}</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <span className="font-bold text-amber-400 text-xs">Q.4</span>
-                <span>Compare Paging vs Segmentation in Operating Systems...</span>
+                <span className="font-bold text-amber-400 text-xs font-mono">Q.2</span>
+                <span>{questionsList[1] || 'State and describe ACID properties of transaction management...'}</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <span className="font-bold text-amber-400 text-xs font-mono">Q.3</span>
+                <span>Explain Normalization: Define 1NF, 2NF, and 3NF with table examples...</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <span className="font-bold text-amber-400 text-xs font-mono">Q.4</span>
+                <span>Compare Primary Key vs Foreign Key constraints in SQL...</span>
               </div>
             </div>
 
-            {/* Lock Overlay Prompt */}
-            <div className="absolute inset-0 bg-[#0f172a]/90 backdrop-blur-sm flex flex-col items-center justify-center text-center p-4">
-              <div className="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-2">
+            {/* Lock Overlay Prompt (Centered, cleanly padded, never cut off) */}
+            <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-sm mx-auto py-2">
+              <div className="w-11 h-11 rounded-full bg-amber-500/15 border border-amber-500/35 flex items-center justify-center text-amber-400 mb-2.5 shadow-lg shadow-amber-500/10">
                 <Lock className="w-5 h-5" />
               </div>
-              <div className="font-heading font-extrabold text-white text-base mb-1">
+              <div className="font-heading font-extrabold text-white text-base sm:text-lg mb-1 tracking-tight">
                 Unlock Question Paper
               </div>
-              <p className="text-xs text-slate-400 max-w-xs mb-3">
-                Fill any 2 basic details to view all {questionsList.length} board questions instantly.
+              <p className="text-xs text-slate-300 max-w-xs mb-3.5 leading-relaxed">
+                Fill any 2 basic details to view all {Math.max(questionsList.length, 10)} board exam questions instantly.
               </p>
               <button
                 onClick={onUnlockClick}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs shadow-md transition-all transform hover:scale-105"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs shadow-lg shadow-amber-500/20 active:scale-95 transition-all cursor-pointer"
               >
                 <span>Unlock Questions</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
