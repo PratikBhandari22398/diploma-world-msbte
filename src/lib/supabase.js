@@ -11,6 +11,11 @@ export const APP_CONFIG = {
   AUTHOR_NAME: "Pratik",
   AUTHOR_ROLE: "Any doubt? Instagram pe DM karo (@diplo.verse)",
   AUTHOR_BIO: "Hey Diploma Engineers! I'm Pratik from Diploma World MSBTE. We provide targeted, high-yield Important Questions (IMP), practical guidance, and last-night exam tips tailored for MSBTE K-Scheme & I-Scheme students across Maharashtra.",
+  STATS: {
+    subscribers: "5.26K+",
+    channelViews: "1.37M+", // 1,375,325+ real views on @diplomakscheme
+    videosCount: "236+",
+  },
   SOCIAL_LINKS: {
     youtube: "https://youtube.com/@diplomakscheme",
     whatsapp: "https://whatsapp.com/channel/0029VabwtWcKLaHnunBUpw2H",

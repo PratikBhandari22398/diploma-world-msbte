@@ -75,20 +75,29 @@ export default function AdminDashboard({ showToast }) {
     }
   }, [session]);
 
+  const getLocalDateString = (d) => {
+    if (!d) return '';
+    const date = new Date(d);
+    if (isNaN(date.getTime())) return '';
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   const loadAdminData = async () => {
     try {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
+      const todayStr = getLocalDateString(new Date());
 
       // 1. Visitors
       const { data: vData } = await supabase.from('visitors').select('*');
       const visitors = vData || [];
-      const vToday = visitors.filter(v => new Date(v.last_seen) >= today).length;
+      const vToday = visitors.filter(v => getLocalDateString(v.last_seen || v.first_seen) === todayStr).length;
 
       // 2. Leads
       const { data: lData } = await supabase.from('leads').select('*').order('created_at', { ascending: false });
       const allLeads = lData || [];
-      const lToday = allLeads.filter(l => new Date(l.created_at) >= today).length;
+      const lToday = allLeads.filter(l => getLocalDateString(l.created_at) === todayStr).length;
 
       // 3. Posts
       const { data: pData } = await supabase.from('imp_posts').select('*').order('created_at', { ascending: false });
@@ -123,14 +132,14 @@ export default function AdminDashboard({ showToast }) {
     for (let i = days - 1; i >= 0; i--) {
       const d = new Date();
       d.setDate(d.getDate() - i);
-      const key = d.toISOString().split('T')[0];
+      const key = getLocalDateString(d);
       const displayLabel = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
       labels.push(displayLabel);
       mapCounts[key] = 0;
     }
 
     visitors.forEach(v => {
-      const dateKey = (v.last_seen || v.first_seen || '').split('T')[0];
+      const dateKey = getLocalDateString(v.last_seen || v.first_seen);
       if (mapCounts[dateKey] !== undefined) {
         mapCounts[dateKey]++;
       }

@@ -40,7 +40,7 @@ export default function Hero() {
               <span>Subscribe on YouTube</span>
             </div>
             <span className="text-[11px] text-red-200 font-medium mt-0.5">
-              5.26K+ Diploma Students Community
+              {APP_CONFIG.STATS.subscribers} Subscribers • {APP_CONFIG.STATS.channelViews} Video Views
             </span>
           </a>
 
@@ -68,22 +68,22 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
             </span>
             <YouTubeIcon className="w-4 h-4" />
-            <span><strong className="text-white font-bold text-sm">5.26K+</strong> YouTube Subscribers</span>
+            <span><strong className="text-white font-bold text-sm">{APP_CONFIG.STATS.subscribers}</strong> YouTube Subscribers</span>
           </div>
 
           <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
-            <Users className="w-4 h-4 text-emerald-400" />
-            <span><strong className="text-white font-bold text-sm">10,000+</strong> MSBTE Community</span>
+            <TrendingUp className="w-4 h-4 text-red-400" />
+            <span><strong className="text-white font-bold text-sm">{APP_CONFIG.STATS.channelViews}</strong> Video Views</span>
           </div>
 
           <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
-            <BookOpen className="w-4 h-4 text-blue-400" />
-            <span>K-Scheme & I-Scheme</span>
+            <BookOpen className="w-4 h-4 text-sky-400" />
+            <span><strong className="text-white font-bold text-sm">{APP_CONFIG.STATS.videosCount}</strong> Video Lectures</span>
           </div>
 
           <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
             <CheckCircle2 className="w-4 h-4 text-amber-400" />
-            <span>100% Free Verified IMPs</span>
+            <span>K & I Scheme Verified IMPs</span>
           </div>
         </div>
 
