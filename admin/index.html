@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Admin Dashboard | Diploma World MSBTE</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="admin.css">
+
+  <!-- Supabase JS Client & Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="admin-navbar">
+    <div class="admin-container admin-nav-row">
+      <div class="admin-brand">
+        <img src="../assets/logo.png" alt="Diploma World MSBTE" class="admin-logo">
+        <div class="admin-title-wrap">
+          <span class="admin-title">Diploma World</span>
+          <span class="admin-badge-role">Admin Portal</span>
+        </div>
+      </div>
+
+      <div id="adminNavPill" class="admin-user-pill" style="display: none;">
+        <span id="adminEmailDisplay" class="admin-email-text">admin@dw.com</span>
+        <button id="signOutBtn" class="btn-signout">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONFIG SETUP NOTICE -->
+  <div id="configNotice" style="display: none; background: #7f1d1d; color: #fecaca; padding: 0.75rem; text-align: center; font-size: 0.85rem;">
+    ⚠️ <strong>Action Required:</strong> Please replace <code>SUPABASE_URL</code> in <code>config.js</code> with your Supabase Project URL to access database auth and live data.
+  </div>
+
+  <main class="admin-container">
+    
+    <!-- 1. LOGIN VIEW (Shown when unauthenticated) -->
+    <section id="loginView" class="login-wrap">
+      <div class="login-card">
+        <img src="../assets/logo.png" alt="Diploma World MSBTE" class="login-logo">
+        <h1 class="login-title">Admin Sign In</h1>
+        <p class="login-sub">Enter your Supabase admin credentials to manage IMP exam questions and review student leads.</p>
+
+        <form id="loginForm">
+          <div id="loginError" style="display: none; color: #fca5a5; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); padding: 0.6rem; border-radius: 8px; font-size: 0.82rem; margin-bottom: 1rem;"></div>
+
+          <div style="margin-bottom: 1rem; text-align: left;">
+            <label class="form-label" for="adminEmail">Admin Email</label>
+            <input type="email" id="adminEmail" class="form-input" placeholder="pratik@example.com" required autocomplete="email">
+          </div>
+
+          <div style="margin-bottom: 1.25rem; text-align: left;">
+            <label class="form-label" for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" class="form-input" placeholder="••••••••••••" required autocomplete="current-password">
+          </div>
+
+          <button type="submit" id="loginSubmitBtn" class="login-btn">
+            Sign In as Admin
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. DASHBOARD VIEW (Shown when authenticated) -->
+    <section id="dashboardView" style="display: none; padding-top: 1.5rem;">
+      
+      <!-- OVERVIEW METRICS CARDS (5 Cards) -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Total Visitors</span>
+          <span id="statTotalVisitors" class="stat-val cyan">--</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-label">Visitors Today</span>
+          <span id="statVisitorsToday" class="stat-val gold">--</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-label">Total Leads</span>
+          <span id="statTotalLeads" class="stat-val green">--</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-label">Leads Today</span>
+          <span id="statLeadsToday" class="stat-val gold">--</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-label">IMP Posts</span>
+          <span id="statTotalPosts" class="stat-val cyan">--</span>
+        </div>
+      </div>
+
+      <!-- 14-DAY VISITOR TREND CHART -->
+      <div class="chart-card">
+        <div class="chart-header">
+          <h2 class="chart-title">
+            <span>📈</span>
+            <span>Visitor Activity Trend (Last 14 Days)</span>
+          </h2>
+          <span style="font-size: 0.76rem; color: #94a3b8;">Real Device Visits</span>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="visitorChart"></canvas>
+        </div>
+      </div>
+
+      <!-- POSTS MANAGER SECTION -->
+      <section class="manager-section">
+        <div class="section-head-row">
+          <h2 class="section-title-admin" id="formModeTitle">⚡ Post IMP Questions</h2>
+          <span style="font-size: 0.8rem; color: #38bdf8; font-weight: 700;">Optimized for Late-Night Exam Prep</span>
+        </div>
+
+        <!-- Rapid Form -->
+        <div id="postFormCard" class="post-form-card">
+          <form id="postForm">
+            
+            <div class="form-grid-2" style="margin-bottom: 0.85rem;">
+              <div>
+                <label class="form-label" for="postTitle">Post Title *</label>
+                <input type="text" id="postTitle" class="form-input" placeholder="e.g. Top 10 IMP Questions - Operating Systems" required>
+              </div>
+
+              <div>
+                <label class="form-label" for="postSubject">Subject Name & Code *</label>
+                <input type="text" id="postSubject" class="form-input" placeholder="e.g. Operating Systems (313301)" required>
+              </div>
+            </div>
+
+            <div class="form-grid-3" style="margin-bottom: 0.85rem;">
+              <div>
+                <label class="form-label" for="postSemester">Semester *</label>
+                <select id="postSemester" class="form-select" required>
+                  <option value="Sem 1">Sem 1</option>
+                  <option value="Sem 2">Sem 2</option>
+                  <option value="Sem 3" selected>Sem 3</option>
+                  <option value="Sem 4">Sem 4</option>
+                  <option value="Sem 5">Sem 5</option>
+                  <option value="Sem 6">Sem 6</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label" for="postScheme">Scheme *</label>
+                <select id="postScheme" class="form-select" required>
+                  <option value="K-Scheme" selected>K-Scheme</option>
+                  <option value="I-Scheme">I-Scheme</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label" for="postExamDate">Exam Date</label>
+                <input type="date" id="postExamDate" class="form-input">
+              </div>
+            </div>
+
+            <div style="margin-bottom: 0.85rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <label class="form-label" for="postQuestions" style="margin-bottom: 0;">Questions (One question per line) *</label>
+                <span style="font-size: 0.72rem; color: #fbbf24;">Tip: Hit Enter for new question</span>
+              </div>
+              <textarea id="postQuestions" class="form-textarea" placeholder="Explain the role of Operating System...&#10;Differentiate between Monolithic and Microkernel...&#10;What is Deadlock? Explain 4 conditions..." required></textarea>
+            </div>
+
+            <div class="form-switch-row">
+              <input type="checkbox" id="postPublished" class="switch-checkbox" checked>
+              <label for="postPublished" style="font-size: 0.88rem; font-weight: 700; color: #fff; cursor: pointer;">
+                Publish immediately (visible to all students)
+              </label>
+            </div>
+
+            <div class="form-actions-row">
+              <button type="submit" id="savePostBtn" class="btn-save-post">
+                Publish IMP Post
+              </button>
+              <button type="button" id="cancelEditBtn" class="btn-cancel-edit" style="display: none;">
+                Cancel Edit
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Existing Posts List -->
+        <h3 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem;">
+          Existing IMP Posts
+        </h3>
+        <div id="adminPostsList" class="admin-posts-list">
+          <div style="text-align: center; padding: 2rem; color: #94a3b8;">
+            Loading posts...
+          </div>
+        </div>
+
+      </section>
+
+      <!-- LEADS MANAGEMENT SECTION -->
+      <section class="manager-section">
+        <div class="section-head-row">
+          <h2 class="section-title-admin">📋 Student Leads (Entry Gate)</h2>
+        </div>
+
+        <div class="leads-header-row">
+          <input type="text" id="leadsSearchInput" class="leads-search-input" placeholder="Search by name, email, or college/city...">
+          <button id="exportCsvBtn" class="btn-export-csv">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            <span>Export to CSV</span>
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="leads-table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Email Address</th>
+                <th>College / City</th>
+                <th>Submitted Date</th>
+              </tr>
+            </thead>
+            <tbody id="leadsTableBody">
+              <tr>
+                <td colspan="4" style="text-align: center; color: #94a3b8; padding: 2rem;">Loading student leads...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="leadsCountBar" class="leads-count-bar"></div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <!-- Load Global Config & Admin Logic -->
+  <script src="../config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
