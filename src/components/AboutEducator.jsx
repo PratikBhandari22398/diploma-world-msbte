@@ -5,13 +5,13 @@ import { YouTubeIcon, WhatsAppIcon, InstagramIcon } from './BrandIcons';
 
 export default function AboutEducator() {
   return (
-    <section id="about" className="py-16 border-t border-slate-800 bg-[#0f172a]/50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="about" className="py-10 sm:py-16 border-t border-slate-800 bg-[#0f172a]/50 scroll-mt-20">
+      <div className="max-w-4xl mx-auto px-3.5 sm:px-6">
         
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 text-center shadow-lg">
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-center shadow-lg">
           
           {/* Avatar with gold border */}
-          <div className="w-24 h-24 rounded-full border-4 border-amber-500 mx-auto mb-4 overflow-hidden shadow-xl shadow-amber-500/10 bg-black">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-amber-500 mx-auto mb-3.5 sm:mb-4 overflow-hidden shadow-xl shadow-amber-500/10 bg-black">
             <img src="/assets/logo.png" alt="Pratik - Diploma World MSBTE" className="w-full h-full object-cover" />
           </div>
 
@@ -21,7 +21,7 @@ export default function AboutEducator() {
             <span>Verified MSBTE Educator</span>
           </div>
 
-          <h3 className="text-2xl font-heading font-extrabold text-white mb-2">
+          <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-white mb-2">
             {APP_CONFIG.AUTHOR_NAME}
           </h3>
 
@@ -30,7 +30,7 @@ export default function AboutEducator() {
               href={APP_CONFIG.SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500/15 via-purple-500/15 to-amber-500/15 border border-pink-500/30 text-pink-300 hover:text-white text-xs sm:text-sm font-bold tracking-wide transition-all hover:scale-105 hover:border-pink-400 shadow-sm shadow-pink-500/10 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-pink-500/15 via-purple-500/15 to-amber-500/15 border border-pink-500/30 text-pink-300 hover:text-white text-xs sm:text-sm font-bold tracking-wide transition-all hover:scale-105 hover:border-pink-400 shadow-sm shadow-pink-500/10 cursor-pointer"
               title="Send DM on Instagram"
             >
               <InstagramIcon className="w-4 h-4" />
@@ -39,7 +39,7 @@ export default function AboutEducator() {
             </a>
           </div>
 
-          <p className="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+          <p className="max-w-2xl mx-auto text-slate-300 text-xs sm:text-base leading-relaxed mb-6 sm:mb-8 px-1 sm:px-0">
             {APP_CONFIG.AUTHOR_BIO}
           </p>
 

@@ -149,104 +149,114 @@ export default function Navbar({ currentView, setCurrentView }) {
 
       </div>
 
-      {/* Mobile Sliding Drawer Menu */}
+      {/* Mobile Sliding Drawer Menu & Backdrop */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-800 bg-[#0b1120] px-4 pt-3 pb-5 shadow-2xl animate-fade-in space-y-3">
-          
-          <div className="space-y-1">
-            <button
-              onClick={() => scrollToSection('home')}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-sm font-semibold border border-slate-800/80 active:bg-slate-800"
-            >
-              <div className="flex items-center gap-3">
-                <Home className="w-4 h-4 text-blue-400" />
-                <span>Home</span>
-              </div>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
-            </button>
+        <>
+          {/* Backdrop Overlay (closes menu on outside tap) */}
+          <div 
+            onClick={() => setMobileMenuOpen(false)}
+            className="fixed inset-0 top-16 bg-black/75 backdrop-blur-sm z-40 md:hidden animate-fade-in"
+            aria-hidden="true"
+          />
 
-            <button
-              onClick={() => scrollToSection('questions')}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-sm font-semibold border border-slate-800/80 active:bg-slate-800"
-            >
-              <div className="flex items-center gap-3">
-                <BookOpen className="w-4 h-4 text-amber-400" />
-                <span>IMP Questions Bank</span>
-              </div>
-              <span className="text-[10px] bg-amber-500/15 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">K & I</span>
-            </button>
-
-            <button
-              onClick={() => scrollToSection('about')}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-sm font-semibold border border-slate-800/80 active:bg-slate-800"
-            >
-              <div className="flex items-center gap-3">
-                <User className="w-4 h-4 text-emerald-400" />
-                <span>About Pratik</span>
-              </div>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
-            </button>
-          </div>
-
-          {/* Mobile Direct Social CTAs */}
-          <div className="pt-2 border-t border-slate-800/80 space-y-2">
-            <a
-              href={APP_CONFIG.SOCIAL_LINKS.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 text-white text-xs font-bold shadow-md"
-            >
-              <div className="flex items-center gap-2.5">
-                <YouTubeIcon className="w-4 h-4" />
-                <span>Subscribe on YouTube</span>
-              </div>
-              <span className="text-[10px] bg-black/20 px-2 py-0.5 rounded-full">5.26K+ Subs</span>
-            </a>
-
-            <a
-              href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-xs font-bold shadow-md"
-            >
-              <div className="flex items-center gap-2.5">
-                <WhatsAppIcon className="w-4 h-4" />
-                <span>Join WhatsApp Channel</span>
-              </div>
-              <span className="text-[10px] bg-black/20 px-2 py-0.5 rounded-full">PDF Alerts</span>
-            </a>
-
-            <a
-              href={APP_CONFIG.SOCIAL_LINKS.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-pink-500/30 text-pink-300 text-xs font-bold hover:bg-slate-800"
-            >
-              <div className="flex items-center gap-2.5">
-                <InstagramIcon className="w-4 h-4" />
-                <span>Exam Doubts? DM on Instagram</span>
-              </div>
-              <ExternalLink className="w-3.5 h-3.5 text-pink-400" />
-            </a>
-          </div>
-
-          {/* Admin Exit if in admin view */}
-          {currentView === 'admin' && (
-            <div className="pt-2">
+          {/* Drawer Content */}
+          <div className="relative z-50 md:hidden border-b border-slate-800 bg-[#0b1120] px-4 pt-3 pb-6 shadow-2xl space-y-3 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            
+            <div className="space-y-1">
               <button
-                onClick={() => {
-                  setCurrentView('public');
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 text-xs font-bold"
+                onClick={() => scrollToSection('home')}
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-sm font-semibold border border-slate-800/80 active:bg-slate-800"
               >
-                <Shield className="w-4 h-4 text-red-400" />
-                <span>Exit Admin Dashboard</span>
+                <div className="flex items-center gap-3">
+                  <Home className="w-4 h-4 text-blue-400" />
+                  <span>Home</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-500" />
+              </button>
+
+              <button
+                onClick={() => scrollToSection('questions')}
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-sm font-semibold border border-slate-800/80 active:bg-slate-800"
+              >
+                <div className="flex items-center gap-3">
+                  <BookOpen className="w-4 h-4 text-amber-400" />
+                  <span>IMP Questions Bank</span>
+                </div>
+                <span className="text-[10px] bg-amber-500/15 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded-full font-bold">K & I</span>
+              </button>
+
+              <button
+                onClick={() => scrollToSection('about')}
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-sm font-semibold border border-slate-800/80 active:bg-slate-800"
+              >
+                <div className="flex items-center gap-3">
+                  <User className="w-4 h-4 text-emerald-400" />
+                  <span>About Pratik</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-500" />
               </button>
             </div>
-          )}
 
-        </div>
+            {/* Mobile Direct Social CTAs */}
+            <div className="pt-2 border-t border-slate-800/80 space-y-2">
+              <a
+                href={APP_CONFIG.SOCIAL_LINKS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 text-white text-xs font-bold shadow-md active:scale-98 transition-transform"
+              >
+                <div className="flex items-center gap-2.5">
+                  <YouTubeIcon className="w-4 h-4" />
+                  <span>Subscribe on YouTube</span>
+                </div>
+                <span className="text-[10px] bg-black/20 px-2 py-0.5 rounded-full">5.26K+ Subs</span>
+              </a>
+
+              <a
+                href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-xs font-bold shadow-md active:scale-98 transition-transform"
+              >
+                <div className="flex items-center gap-2.5">
+                  <WhatsAppIcon className="w-4 h-4" />
+                  <span>Join WhatsApp Channel</span>
+                </div>
+                <span className="text-[10px] bg-black/20 px-2 py-0.5 rounded-full">PDF Alerts</span>
+              </a>
+
+              <a
+                href={APP_CONFIG.SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-pink-500/30 text-pink-300 text-xs font-bold hover:bg-slate-800 active:scale-98 transition-transform"
+              >
+                <div className="flex items-center gap-2.5">
+                  <InstagramIcon className="w-4 h-4" />
+                  <span>Exam Doubts? DM on Instagram</span>
+                </div>
+                <ExternalLink className="w-3.5 h-3.5 text-pink-400" />
+              </a>
+            </div>
+
+            {/* Admin Exit if in admin view */}
+            {currentView === 'admin' && (
+              <div className="pt-2">
+                <button
+                  onClick={() => {
+                    setCurrentView('public');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 text-xs font-bold"
+                >
+                  <Shield className="w-4 h-4 text-red-400" />
+                  <span>Exit Admin Dashboard</span>
+                </button>
+              </div>
+            )}
+
+          </div>
+        </>
       )}
     </header>
   );

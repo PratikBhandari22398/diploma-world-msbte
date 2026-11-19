@@ -129,13 +129,13 @@ export default function App() {
           <Hero />
 
           {/* Question Bank Feed */}
-          <section id="questions" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 scroll-mt-20">
+          <section id="questions" className="max-w-6xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12 scroll-mt-20">
             
-            <div className="mb-6">
-              <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white tracking-tight">
+            <div className="mb-5 sm:mb-6">
+              <h2 className="text-xl sm:text-3xl font-heading font-extrabold text-white tracking-tight">
                 MSBTE Important Questions (IMP)
               </h2>
-              <p className="text-sm text-slate-400 mt-1">
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
                 Handpicked questions updated before each examination. Filter by semester & scheme.
               </p>
             </div>
@@ -193,14 +193,14 @@ export default function App() {
       />
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 bg-[#050811] pt-8 pb-24 md:pb-8 text-center text-xs text-slate-400 select-none">
+      <footer className="border-t border-slate-800 bg-[#050811] pt-8 pb-32 sm:pb-12 text-center text-xs text-slate-400 select-none">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-center gap-2 mb-3">
             <img src="/assets/logo.png" alt="Diploma World MSBTE" className="w-7 h-7 rounded-full border border-amber-500" />
             <span className="font-heading font-extrabold text-white text-sm">Diploma World MSBTE</span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-5 mb-4 text-slate-300">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-4 text-slate-300">
             <a href={APP_CONFIG.SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition-colors group">
               <YouTubeIcon className="w-3.5 h-3.5 transition-transform group-hover:scale-110" />
               <span>YouTube</span>
@@ -218,7 +218,7 @@ export default function App() {
             </a>
           </div>
 
-          <p className="text-slate-500 max-w-xl mx-auto mb-2 text-[11px] leading-relaxed">
+          <p className="text-slate-500 max-w-xl mx-auto mb-2 text-[11px] leading-relaxed px-2">
             Disclaimer: Diploma World MSBTE is an independent student support initiative founded by Pratik and is not officially affiliated with MSBTE.
           </p>
 
@@ -235,14 +235,14 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Sticky Mobile Floating Action Bar (App-like touch experience) */}
+      {/* Sticky Mobile Floating Action Bar (App-like touch experience with safe area) */}
       {currentView === 'public' && (
-        <aside aria-label="Mobile quick actions" className="md:hidden fixed bottom-3 inset-x-3 z-40 bg-[#0b1120]/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-2 shadow-2xl flex items-center justify-between gap-2 shadow-black/80">
+        <aside aria-label="Mobile quick actions" className="md:hidden fixed bottom-3 inset-x-3 z-40 bg-[#0b1120]/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-2 shadow-2xl flex items-center justify-between gap-2 shadow-black/80 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
           <a
             href={APP_CONFIG.SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-gradient-to-r from-red-600 to-red-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-gradient-to-r from-red-600 to-red-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all cursor-pointer"
           >
             <YouTubeIcon className="w-4 h-4 flex-shrink-0" />
             <span className="truncate">YouTube (5.26K+)</span>
@@ -252,7 +252,7 @@ export default function App() {
             href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all cursor-pointer"
           >
             <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
             <span className="truncate">WhatsApp PDFs</span>
@@ -260,9 +260,9 @@ export default function App() {
         </aside>
       )}
 
-      {/* Toast Notification */}
+      {/* Toast Notification (Offset above mobile floating bar on mobile) */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 border border-blue-500 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-2xl animate-bounce-in">
+        <div className="fixed bottom-20 md:bottom-6 right-3 sm:right-6 z-50 bg-slate-900 border border-blue-500 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-2xl animate-bounce-in max-w-[90vw]">
           {toastMessage}
         </div>
       )}
