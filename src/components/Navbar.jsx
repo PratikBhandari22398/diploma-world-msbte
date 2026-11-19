@@ -122,25 +122,25 @@ export default function Navbar({ currentView, setCurrentView }) {
             href={APP_CONFIG.SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg bg-red-600/15 text-red-400 border border-red-500/30 active:scale-95 transition-transform"
+            className="p-1.5 rounded-xl bg-slate-900 border border-slate-700/80 active:scale-95 transition-all flex items-center justify-center shadow-sm"
             title="YouTube"
           >
-            <YouTubeIcon className="w-4 h-4" />
+            <YouTubeIcon className="w-5 h-5" />
           </a>
 
           <a
             href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg bg-emerald-600/15 text-emerald-400 border border-emerald-500/30 active:scale-95 transition-transform"
+            className="p-1.5 rounded-xl bg-slate-900 border border-slate-700/80 active:scale-95 transition-all flex items-center justify-center shadow-sm"
             title="WhatsApp"
           >
-            <WhatsAppIcon className="w-4 h-4" />
+            <WhatsAppIcon className="w-5 h-5" />
           </a>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-slate-800 text-slate-200 border border-slate-700 active:scale-95 transition-all ml-0.5"
+            className="p-2 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 active:scale-95 transition-all ml-0.5"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5 text-amber-400" /> : <Menu className="w-5 h-5" />}
@@ -203,10 +203,12 @@ export default function Navbar({ currentView, setCurrentView }) {
                 href={APP_CONFIG.SOCIAL_LINKS.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 text-white text-xs font-bold shadow-md active:scale-98 transition-transform"
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 text-white text-xs font-bold shadow-md active:scale-98 transition-transform cursor-pointer"
               >
                 <div className="flex items-center gap-2.5">
-                  <YouTubeIcon className="w-4 h-4" />
+                  <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm">
+                    <YouTubeIcon className="w-4 h-4" />
+                  </div>
                   <span>Subscribe on YouTube</span>
                 </div>
                 <span className="text-[10px] bg-black/20 px-2 py-0.5 rounded-full">5.26K+ Subs</span>
@@ -216,10 +218,12 @@ export default function Navbar({ currentView, setCurrentView }) {
                 href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-xs font-bold shadow-md active:scale-98 transition-transform"
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-xs font-bold shadow-md active:scale-98 transition-transform cursor-pointer"
               >
                 <div className="flex items-center gap-2.5">
-                  <WhatsAppIcon className="w-4 h-4" />
+                  <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm">
+                    <WhatsAppIcon className="w-4 h-4" />
+                  </div>
                   <span>Join WhatsApp Channel</span>
                 </div>
                 <span className="text-[10px] bg-black/20 px-2 py-0.5 rounded-full">PDF Alerts</span>
@@ -229,10 +233,10 @@ export default function Navbar({ currentView, setCurrentView }) {
                 href={APP_CONFIG.SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-pink-500/30 text-pink-300 text-xs font-bold hover:bg-slate-800 active:scale-98 transition-transform"
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-pink-500/30 text-pink-300 text-xs font-bold hover:bg-slate-800 active:scale-98 transition-transform cursor-pointer"
               >
                 <div className="flex items-center gap-2.5">
-                  <InstagramIcon className="w-4 h-4" />
+                  <InstagramIcon className="w-5 h-5 flex-shrink-0" />
                   <span>Exam Doubts? DM on Instagram</span>
                 </div>
                 <ExternalLink className="w-3.5 h-3.5 text-pink-400" />

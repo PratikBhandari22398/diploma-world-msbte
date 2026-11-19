@@ -35,11 +35,13 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto flex-1 flex flex-col items-center justify-center py-3 sm:py-3.5 px-4 sm:px-6 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 active:scale-[0.98] text-white shadow-lg shadow-red-600/30 transition-all border border-red-400/20 group cursor-pointer"
           >
-            <div className="flex items-center gap-2 font-heading font-extrabold text-sm sm:text-base">
-              <YouTubeIcon className="w-5 h-5 transition-transform group-hover:scale-110" />
+            <div className="flex items-center gap-2.5 font-heading font-extrabold text-sm sm:text-base">
+              <div className="w-7 h-7 rounded-lg bg-white shadow-sm flex items-center justify-center p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
+                <YouTubeIcon className="w-5 h-5" />
+              </div>
               <span>Subscribe on YouTube</span>
             </div>
-            <span className="text-[11px] text-red-100 font-medium mt-0.5">
+            <span className="text-[11px] text-red-100 font-medium mt-1">
               {APP_CONFIG.STATS.subscribers} Subscribers • {APP_CONFIG.STATS.channelViews} Video Views
             </span>
           </a>
@@ -50,11 +52,13 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto flex-1 flex flex-col items-center justify-center py-3 sm:py-3.5 px-4 sm:px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 active:scale-[0.98] text-white shadow-lg shadow-emerald-600/30 transition-all border border-emerald-400/20 group cursor-pointer"
           >
-            <div className="flex items-center gap-2 font-heading font-extrabold text-sm sm:text-base">
-              <WhatsAppIcon className="w-5 h-5 transition-transform group-hover:scale-110" />
+            <div className="flex items-center gap-2.5 font-heading font-extrabold text-sm sm:text-base">
+              <div className="w-7 h-7 rounded-lg bg-white shadow-sm flex items-center justify-center p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
+                <WhatsAppIcon className="w-5 h-5" />
+              </div>
               <span>Join WhatsApp Channel</span>
             </div>
-            <span className="text-[11px] text-emerald-100 font-medium mt-0.5">
+            <span className="text-[11px] text-emerald-100 font-medium mt-1">
               Instant Question Paper PDF Alerts
             </span>
           </a>

@@ -242,9 +242,11 @@ export default function App() {
             href={APP_CONFIG.SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-gradient-to-r from-red-600 to-red-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all cursor-pointer"
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-2 rounded-xl bg-gradient-to-r from-red-600 to-red-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all cursor-pointer"
           >
-            <YouTubeIcon className="w-4 h-4 flex-shrink-0" />
+            <div className="w-5 h-5 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm">
+              <YouTubeIcon className="w-4 h-4" />
+            </div>
             <span className="truncate">YouTube (5.26K+)</span>
           </a>
 
@@ -252,9 +254,11 @@ export default function App() {
             href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all cursor-pointer"
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 active:scale-95 text-white text-xs font-bold shadow-md transition-all cursor-pointer"
           >
-            <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
+            <div className="w-5 h-5 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm">
+              <WhatsAppIcon className="w-4 h-4" />
+            </div>
             <span className="truncate">WhatsApp PDFs</span>
           </a>
         </aside>
