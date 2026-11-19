@@ -7,7 +7,6 @@ import EntryGateModal from './components/EntryGateModal';
 import AboutEducator from './components/AboutEducator';
 import AdminDashboard from './components/AdminDashboard';
 import { supabase, APP_CONFIG } from './lib/supabase';
-import { Youtube, MessageCircle, Instagram, Twitter } from 'lucide-react';
 
 export default function App() {
   const [currentView, setCurrentView] = useState('public'); // 'public' | 'admin'
@@ -29,6 +28,15 @@ export default function App() {
       setCurrentView('admin');
     }
 
+    // Secret Keyboard Shortcut: Ctrl + Shift + A (or Cmd + Shift + A)
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        setCurrentView((prev) => (prev === 'admin' ? 'public' : 'admin'));
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
     // Check entry gate submission state
     const submitted = localStorage.getItem('dw_lead_submitted') === 'true';
     setIsUnlocked(submitted);
@@ -38,6 +46,8 @@ export default function App() {
 
     // Fetch posts
     fetchPosts();
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const trackVisitor = async () => {
@@ -107,12 +117,12 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#080d1a] text-slate-200">
       
-      {/* Top Announcement Bar */}
+      {/* Top Notice */}
       <div className="bg-[#1e1b4b] border-b border-indigo-900/50 py-1.5 px-4 text-center text-xs text-indigo-200 font-semibold">
         📢 <strong>MSBTE Diploma Question Banks:</strong> Verified K-Scheme & I-Scheme high-yield exam questions are live!
       </div>
 
-      {/* Sticky Header */}
+      {/* Sticky Header with Secret Logo Tap */}
       <Navbar currentView={currentView} setCurrentView={setCurrentView} />
 
       {/* Main View Switch */}
@@ -190,8 +200,8 @@ export default function App() {
         showToast={showToast}
       />
 
-      {/* Footer */}
-      <footer className="border-t border-slate-800 bg-[#050811] py-8 text-center text-xs text-slate-400">
+      {/* Footer (Secret: Clicking the lock icon opens Admin) */}
+      <footer className="border-t border-slate-800 bg-[#050811] py-8 text-center text-xs text-slate-400 select-none">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-center gap-2 mb-3">
             <img src="/assets/logo.png" alt="Diploma World MSBTE" className="w-7 h-7 rounded-full border border-amber-500" />
@@ -209,8 +219,16 @@ export default function App() {
             Disclaimer: Diploma World MSBTE is an independent student support initiative founded by Pratik and is not officially affiliated with MSBTE.
           </p>
 
-          <p className="text-slate-400 text-[11px]">
-            &copy; 2026 Diploma World MSBTE. All rights reserved. Made with ❤️ for MSBTE Students in Maharashtra.
+          <p className="text-slate-400 text-[11px] flex items-center justify-center gap-1">
+            <span>&copy; 2026 Diploma World MSBTE. All rights reserved. Made with ❤️ for MSBTE Students.</span>
+            {/* Secret mini lock for admin */}
+            <span 
+              onClick={() => setCurrentView('admin')}
+              className="cursor-pointer text-slate-700 hover:text-slate-500 transition-colors ml-1 p-0.5"
+              title="Portal"
+            >
+              🔒
+            </span>
           </p>
         </div>
       </footer>
