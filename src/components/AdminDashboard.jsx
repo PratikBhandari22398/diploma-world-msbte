@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import Chart from 'chart.js/auto';
 import { supabase } from '../lib/supabase';
+import AnimatedCounter from './AnimatedCounter';
 
 export default function AdminDashboard({ showToast }) {
   const [session, setSession] = useState(null);
@@ -396,31 +397,41 @@ export default function AdminDashboard({ showToast }) {
         </button>
       </div>
 
-      {/* 5 Overview Metric Cards */}
+      {/* 5 Overview Metric Cards with Counting Effect */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3.5">
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Total Visitors</div>
-          <div className="text-2xl font-heading font-extrabold text-sky-400">{stats.totalVisitors.toLocaleString()}</div>
+          <div className="text-2xl font-heading font-extrabold text-sky-400 font-mono">
+            <AnimatedCounter target={stats.totalVisitors} duration={1200} />
+          </div>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Visitors Today</div>
-          <div className="text-2xl font-heading font-extrabold text-amber-400">{stats.visitorsToday.toLocaleString()}</div>
+          <div className="text-2xl font-heading font-extrabold text-amber-400 font-mono">
+            <AnimatedCounter target={stats.visitorsToday} duration={1200} />
+          </div>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Total Leads</div>
-          <div className="text-2xl font-heading font-extrabold text-emerald-400">{stats.totalLeads.toLocaleString()}</div>
+          <div className="text-2xl font-heading font-extrabold text-emerald-400 font-mono">
+            <AnimatedCounter target={stats.totalLeads} duration={1200} />
+          </div>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Leads Today</div>
-          <div className="text-2xl font-heading font-extrabold text-amber-400">{stats.leadsToday.toLocaleString()}</div>
+          <div className="text-2xl font-heading font-extrabold text-amber-400 font-mono">
+            <AnimatedCounter target={stats.leadsToday} duration={1200} />
+          </div>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 col-span-2 sm:col-span-1">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">IMP Posts</div>
-          <div className="text-2xl font-heading font-extrabold text-blue-400">{stats.totalPosts.toLocaleString()}</div>
+          <div className="text-2xl font-heading font-extrabold text-blue-400 font-mono">
+            <AnimatedCounter target={stats.totalPosts} duration={1200} />
+          </div>
         </div>
       </div>
 

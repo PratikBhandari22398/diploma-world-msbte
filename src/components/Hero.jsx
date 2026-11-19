@@ -2,6 +2,7 @@ import React from 'react';
 import { Users, CheckCircle2, BookOpen, Sparkles, TrendingUp } from 'lucide-react';
 import { APP_CONFIG } from '../lib/supabase';
 import { YouTubeIcon, WhatsAppIcon } from './BrandIcons';
+import AnimatedCounter from './AnimatedCounter';
 
 export default function Hero() {
   return (
@@ -27,67 +28,71 @@ export default function Hero() {
           Targeted, high-yield Important Questions (IMP) and last-minute exam prep tailored for MSBTE K-Scheme & I-Scheme polytechnic students across Maharashtra.
         </p>
 
-        {/* Big High-Converting CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-lg mx-auto mb-7 sm:mb-10 px-1 sm:px-0">
+        {/* Premium Compact CTA Buttons (Soft Corners, Minimal Text) */}
+        <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-md mx-auto mb-7 sm:mb-9 px-2">
           <a
             href={APP_CONFIG.SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto flex-1 flex flex-col items-center justify-center py-3 sm:py-3.5 px-4 sm:px-6 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 active:scale-[0.98] text-white shadow-lg shadow-red-600/30 transition-all border border-red-400/20 group cursor-pointer"
+            className="flex-1 flex items-center justify-center gap-2.5 py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl bg-gradient-to-r from-[#FF0000] to-[#D90000] hover:from-[#E60000] hover:to-[#B30000] active:scale-95 text-white shadow-md shadow-red-600/25 hover:shadow-lg hover:shadow-red-600/40 border border-red-400/30 transition-all transform hover:-translate-y-0.5 group cursor-pointer"
+            title="Subscribe on YouTube"
           >
-            <div className="flex items-center gap-2.5 font-heading font-extrabold text-sm sm:text-base">
-              <div className="w-7 h-7 rounded-lg bg-white shadow-sm flex items-center justify-center p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
-                <YouTubeIcon className="w-5 h-5" />
-              </div>
-              <span>Subscribe on YouTube</span>
+            <div className="w-6 h-6 rounded-md bg-white shadow-sm flex items-center justify-center p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
+              <YouTubeIcon className="w-4 h-4" />
             </div>
-            <span className="text-[11px] text-red-100 font-medium mt-1">
-              {APP_CONFIG.STATS.subscribers} Subscribers • {APP_CONFIG.STATS.channelViews} Video Views
-            </span>
+            <span className="font-heading font-extrabold text-xs sm:text-sm tracking-wide">YouTube</span>
           </a>
 
           <a
             href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto flex-1 flex flex-col items-center justify-center py-3 sm:py-3.5 px-4 sm:px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 active:scale-[0.98] text-white shadow-lg shadow-emerald-600/30 transition-all border border-emerald-400/20 group cursor-pointer"
+            className="flex-1 flex items-center justify-center gap-2.5 py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#1EBE5D] hover:from-[#20BA5A] hover:to-[#17A04D] active:scale-95 text-white shadow-md shadow-emerald-600/25 hover:shadow-lg hover:shadow-emerald-600/40 border border-emerald-400/30 transition-all transform hover:-translate-y-0.5 group cursor-pointer"
+            title="Join WhatsApp Channel"
           >
-            <div className="flex items-center gap-2.5 font-heading font-extrabold text-sm sm:text-base">
-              <div className="w-7 h-7 rounded-lg bg-white shadow-sm flex items-center justify-center p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
-                <WhatsAppIcon className="w-5 h-5" />
-              </div>
-              <span>Join WhatsApp Channel</span>
+            <div className="w-6 h-6 rounded-md bg-white shadow-sm flex items-center justify-center p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
+              <WhatsAppIcon className="w-4 h-4" />
             </div>
-            <span className="text-[11px] text-emerald-100 font-medium mt-1">
-              Instant Question Paper PDF Alerts
-            </span>
+            <span className="font-heading font-extrabold text-xs sm:text-sm tracking-wide">WhatsApp</span>
           </a>
         </div>
 
-        {/* Real YouTube Subscribers & Educational Trust Highlights (Symmetrical 2x2 grid on mobile) */}
+        {/* Real YouTube Subscribers & Educational Trust Highlights with Counting Effect */}
         <div className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center gap-2 sm:gap-4 pt-5 sm:pt-6 border-t border-slate-800 text-xs sm:text-sm text-slate-300">
-          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center shadow-sm">
             <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>
             <YouTubeIcon className="w-3.5 h-3.5 flex-shrink-0" />
-            <span className="truncate"><strong className="text-white font-bold">{APP_CONFIG.STATS.subscribers}</strong> YouTube</span>
+            <span className="truncate">
+              <strong className="text-white font-bold font-mono">
+                <AnimatedCounter target={5.26} suffix="K+" decimals={2} duration={1600} />
+              </strong> YouTube
+            </span>
           </div>
 
-          <div className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+          <div className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center shadow-sm">
             <TrendingUp className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
-            <span className="truncate"><strong className="text-white font-bold">{APP_CONFIG.STATS.channelViews}</strong> Views</span>
+            <span className="truncate">
+              <strong className="text-white font-bold font-mono">
+                <AnimatedCounter target={1.37} suffix="M+" decimals={2} duration={1800} />
+              </strong> Views
+            </span>
           </div>
 
-          <div className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+          <div className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center shadow-sm">
             <BookOpen className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
-            <span className="truncate"><strong className="text-white font-bold">{APP_CONFIG.STATS.videosCount}</strong> Lectures</span>
+            <span className="truncate">
+              <strong className="text-white font-bold font-mono">
+                <AnimatedCounter target={236} suffix="+" duration={1500} />
+              </strong> Lectures
+            </span>
           </div>
 
-          <div className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+          <div className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center shadow-sm">
             <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
-            <span className="truncate">K & I Schemes</span>
+            <span className="truncate font-medium">K & I Schemes</span>
           </div>
         </div>
 
