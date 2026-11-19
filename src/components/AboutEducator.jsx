@@ -20,13 +20,23 @@ export default function AboutEducator() {
             <span>Verified MSBTE Educator</span>
           </div>
 
-          <h3 className="text-2xl font-heading font-extrabold text-white mb-1">
+          <h3 className="text-2xl font-heading font-extrabold text-white mb-2">
             {APP_CONFIG.AUTHOR_NAME}
           </h3>
 
-          <p className="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-4">
-            {APP_CONFIG.AUTHOR_ROLE}
-          </p>
+          <div className="mb-4">
+            <a
+              href={APP_CONFIG.SOCIAL_LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500/15 via-purple-500/15 to-amber-500/15 border border-pink-500/30 text-pink-300 hover:text-white text-xs sm:text-sm font-bold tracking-wide transition-all hover:scale-105 hover:border-pink-400 shadow-sm shadow-pink-500/10 cursor-pointer"
+              title="Send DM on Instagram"
+            >
+              <Instagram className="w-4 h-4 text-pink-400" />
+              <span>Any doubt? Instagram pe DM karo</span>
+              <span className="text-[11px] text-pink-400/80 font-medium">(@diplo.verse)</span>
+            </a>
+          </div>
 
           <p className="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
             {APP_CONFIG.AUTHOR_BIO}

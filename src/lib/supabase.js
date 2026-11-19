@@ -9,7 +9,7 @@ export const APP_CONFIG = {
   CHANNEL_NAME: "Diploma World MSBTE",
   TAGLINE: "Important Questions for MSBTE Exams",
   AUTHOR_NAME: "Pratik",
-  AUTHOR_ROLE: "Founder & MSBTE Exam Mentor",
+  AUTHOR_ROLE: "Any doubt? Instagram pe DM karo (@diplo.verse)",
   AUTHOR_BIO: "Hey Diploma Engineers! I'm Pratik from Diploma World MSBTE. We provide targeted, high-yield Important Questions (IMP), practical guidance, and last-night exam tips tailored for MSBTE K-Scheme & I-Scheme students across Maharashtra.",
   SOCIAL_LINKS: {
     youtube: "https://youtube.com/@diplomakscheme",
