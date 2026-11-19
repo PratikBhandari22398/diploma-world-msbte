@@ -1,10 +1,10 @@
 import React from 'react';
-import { Youtube, MessageCircle, Users, CheckCircle2, BookOpen, Sparkles, ArrowRight } from 'lucide-react';
+import { Youtube, MessageCircle, Users, CheckCircle2, BookOpen, Sparkles, TrendingUp } from 'lucide-react';
 import { APP_CONFIG } from '../lib/supabase';
 
-export default function Hero({ visitorCount }) {
+export default function Hero() {
   return (
-    <section className="relative pt-12 pb-14 border-b border-slate-800/80 bg-gradient-to-b from-[#0f172a]/60 to-[#080d1a]">
+    <section id="home" className="relative pt-12 pb-14 border-b border-slate-800/80 bg-gradient-to-b from-[#0f172a]/60 to-[#080d1a]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
         
         {/* Academic Announcement Badge */}
@@ -26,46 +26,61 @@ export default function Hero({ visitorCount }) {
           Targeted, high-yield Important Questions (IMP) and last-minute exam prep tailored for MSBTE K-Scheme & I-Scheme polytechnic students across Maharashtra.
         </p>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-md mx-auto mb-10">
+        {/* Big High-Converting CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto mb-10">
           <a
             href={APP_CONFIG.SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-red-600/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto flex-1 flex flex-col items-center justify-center py-3.5 px-6 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white shadow-lg shadow-red-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 border border-red-400/20 group"
           >
-            <Youtube className="w-5 h-5 fill-current" />
-            <span>Subscribe on YouTube</span>
+            <div className="flex items-center gap-2 font-heading font-extrabold text-sm sm:text-base">
+              <Youtube className="w-5 h-5 fill-current" />
+              <span>Subscribe on YouTube</span>
+            </div>
+            <span className="text-[11px] text-red-200 font-medium mt-0.5">
+              5.26K+ Diploma Students Community
+            </span>
           </a>
 
           <a
             href={APP_CONFIG.SOCIAL_LINKS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-600/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto flex-1 flex flex-col items-center justify-center py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 border border-emerald-400/20 group"
           >
-            <MessageCircle className="w-5 h-5 fill-current" />
-            <span>Join WhatsApp Channel</span>
+            <div className="flex items-center gap-2 font-heading font-extrabold text-sm sm:text-base">
+              <MessageCircle className="w-5 h-5 fill-current" />
+              <span>Join WhatsApp Channel</span>
+            </div>
+            <span className="text-[11px] text-emerald-200 font-medium mt-0.5">
+              Instant Question Paper PDF Alerts
+            </span>
           </a>
         </div>
 
-        {/* Real Visitor Counter & Trust Highlights */}
+        {/* Real YouTube Subscribers & Educational Trust Highlights (No Public Visitor Count) */}
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 pt-6 border-t border-slate-800 text-xs sm:text-sm text-slate-400">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
             </span>
-            <Users className="w-4 h-4 text-emerald-400" />
-            <span><strong className="text-white font-bold text-sm">{visitorCount.toLocaleString()}</strong> Students Visited</span>
+            <Youtube className="w-4 h-4 text-red-500" />
+            <span><strong className="text-white font-bold text-sm">5.26K+</strong> YouTube Subscribers</span>
           </div>
 
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+          <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+            <Users className="w-4 h-4 text-emerald-400" />
+            <span><strong className="text-white font-bold text-sm">10,000+</strong> MSBTE Community</span>
+          </div>
+
+          <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
             <BookOpen className="w-4 h-4 text-blue-400" />
             <span>K-Scheme & I-Scheme</span>
           </div>
 
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+          <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
             <CheckCircle2 className="w-4 h-4 text-amber-400" />
             <span>100% Free Verified IMPs</span>
           </div>

@@ -14,7 +14,6 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isGateOpen, setIsGateOpen] = useState(false);
-  const [visitorCount, setVisitorCount] = useState(1240);
   const [toastMessage, setToastMessage] = useState('');
 
   // Filters
@@ -41,8 +40,8 @@ export default function App() {
     const submitted = localStorage.getItem('dw_lead_submitted') === 'true';
     setIsUnlocked(submitted);
 
-    // Track unique visitor
-    trackVisitor();
+    // Track unique visitor quietly in the background for Admin Panel
+    trackVisitorQuietly();
 
     // Fetch posts
     fetchPosts();
@@ -50,7 +49,7 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const trackVisitor = async () => {
+  const trackVisitorQuietly = async () => {
     let visitorId = localStorage.getItem('dw_visitor_id');
     if (!visitorId) {
       visitorId = 'dw_v_' + Math.random().toString(36).substring(2, 10) + '_' + Date.now().toString(36);
@@ -58,15 +57,7 @@ export default function App() {
     }
 
     try {
-      const { data } = await supabase.rpc('record_visitor', { p_visitor_id: visitorId });
-      if (typeof data === 'number' && data > 0) {
-        setVisitorCount(data);
-        return;
-      }
-      const countRes = await supabase.rpc('get_visitor_count');
-      if (typeof countRes.data === 'number' && countRes.data > 0) {
-        setVisitorCount(countRes.data);
-      }
+      await supabase.rpc('record_visitor', { p_visitor_id: visitorId });
     } catch (err) {
       console.warn('Visitor counter error:', err);
     }
@@ -122,7 +113,7 @@ export default function App() {
         📢 <strong>MSBTE Diploma Question Banks:</strong> Verified K-Scheme & I-Scheme high-yield exam questions are live!
       </div>
 
-      {/* Sticky Header with Secret Logo Tap */}
+      {/* Sticky Header with Proper Working Nav Options */}
       <Navbar currentView={currentView} setCurrentView={setCurrentView} />
 
       {/* Main View Switch */}
@@ -133,11 +124,11 @@ export default function App() {
       ) : (
         <main className="flex-grow">
           
-          {/* Hero Section */}
-          <Hero visitorCount={visitorCount} />
+          {/* Hero Section (Showcases 5.26K+ Subscribers, no public visitor count) */}
+          <Hero />
 
           {/* Question Bank Feed */}
-          <section id="questions" className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <section id="questions" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 scroll-mt-20">
             
             <div className="mb-6">
               <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white tracking-tight">
@@ -200,7 +191,7 @@ export default function App() {
         showToast={showToast}
       />
 
-      {/* Footer (Secret: Clicking the lock icon opens Admin) */}
+      {/* Footer */}
       <footer className="border-t border-slate-800 bg-[#050811] py-8 text-center text-xs text-slate-400 select-none">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-center gap-2 mb-3">
@@ -221,7 +212,6 @@ export default function App() {
 
           <p className="text-slate-400 text-[11px] flex items-center justify-center gap-1">
             <span>&copy; 2026 Diploma World MSBTE. All rights reserved. Made with ❤️ for MSBTE Students.</span>
-            {/* Secret mini lock for admin */}
             <span 
               onClick={() => setCurrentView('admin')}
               className="cursor-pointer text-slate-700 hover:text-slate-500 transition-colors ml-1 p-0.5"
