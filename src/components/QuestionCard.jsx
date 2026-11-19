@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Calendar, Flame, Copy, Check, Lock, ArrowRight, Share2, Sparkles, BookOpen } from 'lucide-react';
+import { Calendar, Flame, Copy, Check, Lock, ArrowRight, BookOpen } from 'lucide-react';
+import { WhatsAppIcon } from './BrandIcons';
 
 export default function QuestionCard({ post, isUnlocked, onUnlockClick, showToast }) {
   const [copied, setCopied] = useState(false);
@@ -34,15 +35,13 @@ export default function QuestionCard({ post, isUnlocked, onUnlockClick, showToas
     });
   };
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: post.title,
-        text: `Check out MSBTE IMP Questions for ${post.subject} on Diploma World MSBTE!`,
-        url: window.location.href,
-      }).catch(() => {});
-    } else {
-      handleCopyAll();
+  const handleWhatsAppShare = () => {
+    const siteUrl = window.location.origin || 'https://diploma-world-msbte.vercel.app';
+    const text = `🔥 *MSBTE IMP Questions - ${post.subject}*\n\nBhai MSBTE Exams ke liye *${post.title}* (${post.scheme} - ${post.semester}) ke verified high-yield board questions check kar! 💯\n\n👇 Yahan se direct check karo:\n${siteUrl}#questions\n\n📌 *Diploma World MSBTE* - By Pratik`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    if (showToast) {
+      showToast('🚀 WhatsApp opened! Share with your college group!');
     }
   };
 
@@ -83,20 +82,21 @@ export default function QuestionCard({ post, isUnlocked, onUnlockClick, showToas
 
         {/* Questions Box */}
         {isUnlocked ? (
-          <div className="bg-[#0b1120] border border-slate-800/80 rounded-xl p-3 sm:p-4 mb-4">
+          <div className="bg-[#0b1120] border border-slate-800/80 rounded-xl p-3 sm:p-4 mb-3">
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs text-slate-400 font-semibold">
               <span>Questions List ({questionsList.length})</span>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <button
-                  onClick={handleShare}
-                  className="p-1 rounded text-slate-400 hover:text-white transition-colors"
-                  title="Share"
+                  onClick={handleWhatsAppShare}
+                  className="flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 px-2.5 py-1 rounded-lg transition-colors border border-emerald-500/25 cursor-pointer"
+                  title="Share on WhatsApp"
                 >
-                  <Share2 className="w-4 h-4" />
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">WhatsApp</span>
                 </button>
                 <button
                   onClick={handleCopyAll}
-                  className="flex items-center gap-1 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors bg-blue-500/10 px-2 py-1 rounded"
+                  className="flex items-center gap-1 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors bg-blue-500/10 px-2 py-1 rounded cursor-pointer"
                 >
                   {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copied ? 'Copied!' : 'Copy All'}</span>
@@ -158,6 +158,21 @@ export default function QuestionCard({ post, isUnlocked, onUnlockClick, showToas
             </div>
           </div>
         )}
+
+        {/* 1-Click WhatsApp Group Share Button (Viral Growth) */}
+        <button
+          onClick={handleWhatsAppShare}
+          className="w-full flex items-center justify-center gap-2.5 py-2.5 px-4 rounded-xl bg-emerald-600/15 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 hover:border-emerald-400 text-xs font-bold transition-all shadow-sm group active:scale-[0.98] cursor-pointer mb-3"
+          title="Share to WhatsApp College Group"
+        >
+          <div className="w-5 h-5 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+            <WhatsAppIcon className="w-3.5 h-3.5" />
+          </div>
+          <span>Share to WhatsApp Group</span>
+          <span className="text-[10px] bg-emerald-500/20 group-hover:bg-white/20 text-emerald-200 group-hover:text-white px-2 py-0.5 rounded-full font-bold ml-auto hidden sm:inline">
+            Viral Share 🚀
+          </span>
+        </button>
       </div>
 
       {/* Footer Info */}
