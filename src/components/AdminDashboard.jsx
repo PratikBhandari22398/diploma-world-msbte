@@ -343,7 +343,7 @@ export default function AdminDashboard({ showToast }) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="pratik@diplomaworld.com"
+                placeholder="admin@diplomaworld.com"
                 required
                 className="w-full bg-[#080d1a] border border-slate-700 text-white placeholder-slate-500 px-3.5 py-2.5 rounded-lg text-sm focus:outline-none focus:border-blue-500"
               />

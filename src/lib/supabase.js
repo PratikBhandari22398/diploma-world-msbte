@@ -8,9 +8,9 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 export const APP_CONFIG = {
   CHANNEL_NAME: "Diploma World MSBTE",
   TAGLINE: "Important Questions for MSBTE Exams",
-  AUTHOR_NAME: "Pratik",
+  AUTHOR_NAME: "Diploma World Team",
   AUTHOR_ROLE: "Any doubt? Instagram pe DM karo (@diplo.verse)",
-  AUTHOR_BIO: "Hey Diploma Engineers! I'm Pratik from Diploma World MSBTE. We provide targeted, high-yield Important Questions (IMP), practical guidance, and last-night exam tips tailored for MSBTE K-Scheme & I-Scheme students across Maharashtra.",
+  AUTHOR_BIO: "Hey Diploma Engineers! We are the Diploma World MSBTE Team. We provide targeted, high-yield Important Questions (IMP), practical guidance, and last-night exam tips tailored for MSBTE K-Scheme & I-Scheme students across Maharashtra.",
   STATS: {
     subscribers: "5.26K+",
     channelViews: "1.37M+", // 1,375,325+ real views on @diplomakscheme

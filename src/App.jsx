@@ -178,7 +178,7 @@ export default function App() {
 
           </section>
 
-          {/* About Pratik Section */}
+          {/* About Team Section */}
           <AboutEducator />
 
         </main>
@@ -219,7 +219,7 @@ export default function App() {
           </div>
 
           <p className="text-slate-500 max-w-xl mx-auto mb-2 text-[11px] leading-relaxed px-2">
-            Disclaimer: Diploma World MSBTE is an independent student support initiative founded by Pratik and is not officially affiliated with MSBTE.
+            Disclaimer: Diploma World MSBTE is an independent student support initiative founded by Diploma World Team and is not officially affiliated with MSBTE.
           </p>
 
           <p className="text-slate-400 text-[11px] flex items-center justify-center gap-1">

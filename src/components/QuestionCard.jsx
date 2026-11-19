@@ -37,7 +37,7 @@ export default function QuestionCard({ post, isUnlocked, onUnlockClick, showToas
 
   const handleWhatsAppShare = () => {
     const siteUrl = window.location.origin || 'https://diploma-world-msbte.vercel.app';
-    const text = `🔥 *MSBTE IMP Questions - ${post.subject}*\n\nBhai MSBTE Exams ke liye *${post.title}* (${post.scheme} - ${post.semester}) ke verified high-yield board questions check kar! 💯\n\n👇 Yahan se direct check karo:\n${siteUrl}#questions\n\n📌 *Diploma World MSBTE* - By Pratik`;
+    const text = `🔥 *MSBTE IMP Questions - ${post.subject}*\n\nBhai MSBTE Exams ke liye *${post.title}* (${post.scheme} - ${post.semester}) ke verified high-yield board questions check kar! 💯\n\n👇 Yahan se direct check karo:\n${siteUrl}#questions\n\n📌 *Diploma World MSBTE* - By Diploma Team`;
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     if (showToast) {

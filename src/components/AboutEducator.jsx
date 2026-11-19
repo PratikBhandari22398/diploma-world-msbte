@@ -12,13 +12,13 @@ export default function AboutEducator() {
           
           {/* Avatar with gold border */}
           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-amber-500 mx-auto mb-3.5 sm:mb-4 overflow-hidden shadow-xl shadow-amber-500/10 bg-black">
-            <img src="/assets/logo.png" alt="Pratik - Diploma World MSBTE" className="w-full h-full object-cover" />
+            <img src="/assets/logo.png" alt="Diploma World MSBTE Team" className="w-full h-full object-cover" />
           </div>
 
           {/* Verified Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-bold mb-2">
             <CheckCircle2 className="w-3.5 h-3.5" />
-            <span>Verified MSBTE Educator</span>
+            <span>Verified MSBTE Academic Team</span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-white mb-2">

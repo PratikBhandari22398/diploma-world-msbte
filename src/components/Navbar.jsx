@@ -76,7 +76,7 @@ export default function Navbar({ currentView, setCurrentView }) {
             onClick={() => scrollToSection('about')}
             className="text-sm font-semibold text-slate-300 hover:text-white transition-colors px-2 py-1"
           >
-            About Pratik
+            About Team
           </button>
 
           {/* Social Quick Action Buttons */}
@@ -191,7 +191,7 @@ export default function Navbar({ currentView, setCurrentView }) {
               >
                 <div className="flex items-center gap-3">
                   <User className="w-4 h-4 text-emerald-400" />
-                  <span>About Pratik</span>
+                  <span>About Diploma Team</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-500" />
               </button>
